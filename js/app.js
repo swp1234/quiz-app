@@ -123,7 +123,7 @@ function updateScore() {
 function showResults() {
     quizArea.classList.add('hidden');
     resultScreen.classList.remove('hidden');
-    finalScoreElement.textContent = `${score}/10`;
+    finalScoreElement.textContent = score;
 }
 
 // 퀴즈 재시작
