@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="재미있는 지식 퀴즈로 상식을 쌓아보세요!">
+    <meta name="theme-color" content="#4CAF50">
+    <title>지식 퀴즈 앱</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <!-- 앱 헤더 -->
+        <header class="app-header">
+            <h1>🎯 지식 퀴즈</h1>
+            <div class="score-board">
+                <span>점수: <strong id="score">0</strong></span>
+                <span>문제: <strong id="question-number">1</strong>/10</span>
+            </div>
+        </header>
+
+        <!-- 퀴즈 영역 -->
+        <main class="quiz-container">
+            <div id="quiz-area">
+                <div class="question-card">
+                    <h2 id="question-text">퀴즈를 불러오는 중...</h2>
+                    <div id="answers-container" class="answers">
+                        <!-- 답변 버튼들이 여기에 동적으로 생성됩니다 -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- 결과 화면 -->
+            <div id="result-screen" class="result-screen hidden">
+                <h2>🎉 퀴즈 완료!</h2>
+                <p class="final-score">최종 점수: <strong id="final-score">0</strong>/10</p>
+                <button class="btn btn-primary" onclick="restartQuiz()">다시 시작</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/quiz-data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

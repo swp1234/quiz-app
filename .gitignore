@@ -1,0 +1,21 @@
+# 개발 중 임시 파일
+*.tmp
+*.log
+
+# OS 파일
+.DS_Store
+Thumbs.db
+
+# 프로젝트 관리 파일 (Fire Project 루트에만 유지)
+.cursorrules
+CLAUDE.md
+PROGRESS.md
+Cursor_시작_가이드.md
+프로젝트_계획.md
+세션_요약.md
+records/
+Fire Project.code-workspace
+
+# 에디터 설정
+.vscode/
+.idea/
