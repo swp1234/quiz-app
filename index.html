@@ -3,20 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="재미있는 지식 퀴즈로 상식을 쌓아보세요!">
-    <meta name="theme-color" content="#4CAF50">
+    <meta name="description" content="재미있는 지식 퀴즈로 상식을 쌓아보세요! 100개의 다양한 문제에 도전하세요.">
+    <meta name="theme-color" content="#667eea">
     <title>지식 퀴즈 앱</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icon-192.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icon-192.svg">
 </head>
 <body>
     <div class="container">
+        <!-- 광고 영역 (상단 배너) -->
+        <div class="ad-banner-top">
+            <span class="ad-placeholder">광고 영역</span>
+        </div>
+
         <!-- 앱 헤더 -->
         <header class="app-header">
             <h1>🎯 지식 퀴즈</h1>
             <div class="score-board">
-                <span>점수: <strong id="score">0</strong></span>
-                <span>문제: <strong id="question-number">1</strong>/10</span>
+                <span>🏆 점수: <strong id="score">0</strong></span>
+                <span>📝 문제: <strong id="question-number">1</strong>/10</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 10%;"></div>
             </div>
         </header>
 
@@ -24,6 +34,7 @@
         <main class="quiz-container">
             <div id="quiz-area">
                 <div class="question-card">
+                    <span class="question-badge" id="question-badge">Q1</span>
                     <h2 id="question-text">퀴즈를 불러오는 중...</h2>
                     <div id="answers-container" class="answers">
                         <!-- 답변 버튼들이 여기에 동적으로 생성됩니다 -->
@@ -33,11 +44,19 @@
 
             <!-- 결과 화면 -->
             <div id="result-screen" class="result-screen hidden">
-                <h2>🎉 퀴즈 완료!</h2>
+                <div class="result-icon" id="result-icon">🎉</div>
+                <h2>퀴즈 완료!</h2>
+                <p class="result-message" id="result-message">수고하셨습니다!</p>
                 <p class="final-score">최종 점수: <strong id="final-score">0</strong>/10</p>
-                <button class="btn btn-primary" onclick="restartQuiz()">다시 시작</button>
+                <div class="score-grade" id="score-grade">등급</div>
+                <button class="btn btn-primary" onclick="restartQuiz()">🔄 다시 도전하기</button>
             </div>
         </main>
+
+        <!-- 광고 영역 (하단 배너) -->
+        <div class="ad-banner-bottom">
+            <span class="ad-placeholder">광고 영역</span>
+        </div>
     </div>
 
     <script src="js/quiz-data.js"></script>

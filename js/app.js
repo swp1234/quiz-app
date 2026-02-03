@@ -1,3 +1,5 @@
+// 지식 퀴즈 앱 - 2026 디자인 버전
+
 // 앱 상태 관리
 let currentQuestion = 0;
 let score = 0;
@@ -11,9 +13,19 @@ const questionNumberElement = document.getElementById('question-number');
 const quizArea = document.getElementById('quiz-area');
 const resultScreen = document.getElementById('result-screen');
 const finalScoreElement = document.getElementById('final-score');
-// TODO: AdSense 연동 시 활성화
-// const interstitialAd = document.getElementById('interstitial-ad');
-// const closeAdBtn = document.getElementById('close-ad');
+const progressFill = document.getElementById('progress-fill');
+const questionBadge = document.getElementById('question-badge');
+const resultIcon = document.getElementById('result-icon');
+const resultMessage = document.getElementById('result-message');
+const scoreGrade = document.getElementById('score-grade');
+
+// 결과 메시지
+const resultMessages = {
+    excellent: ['완벽해요! 천재시네요! 🧠', '대단해요! 지식왕입니다! 👑', '놀라워요! 만점이에요! 🌟'],
+    good: ['잘했어요! 훌륭합니다! 👏', '대단해요! 거의 다 맞혔어요! 💪', '멋져요! 실력이 뛰어나네요! ✨'],
+    average: ['좋아요! 조금만 더 노력하면 돼요! 📚', '괜찮아요! 다음엔 더 잘할 거예요! 💫', '나쁘지 않아요! 계속 도전하세요! 🎯'],
+    poor: ['아쉬워요! 다시 도전해보세요! 🔄', '괜찮아요! 공부하고 다시 도전! 📖', '포기하지 마세요! 연습이 답이에요! 💪']
+};
 
 // 초기화
 function init() {
@@ -22,6 +34,7 @@ function init() {
     currentQuestion = 0;
     score = 0;
     updateScore();
+    updateProgress();
     loadQuestion();
 }
 
@@ -43,6 +56,11 @@ function loadQuestion() {
     }
 
     const question = selectedQuestions[currentQuestion];
+    
+    // 문제 배지 업데이트
+    questionBadge.textContent = `Q${currentQuestion + 1}`;
+    
+    // 문제 텍스트 업데이트
     questionText.textContent = question.question;
     answersContainer.innerHTML = '';
 
@@ -55,7 +73,17 @@ function loadQuestion() {
         answersContainer.appendChild(button);
     });
 
+    // 문제 번호 업데이트
     questionNumberElement.textContent = currentQuestion + 1;
+    
+    // 프로그레스 바 업데이트
+    updateProgress();
+}
+
+// 프로그레스 바 업데이트
+function updateProgress() {
+    const progress = ((currentQuestion + 1) / 10) * 100;
+    progressFill.style.width = `${progress}%`;
 }
 
 // 답변 선택
@@ -76,21 +104,11 @@ function selectAnswer(selectedIndex) {
         buttons[question.correct].classList.add('correct');
     }
 
-    // 다음 문제로 이동 (1.5초 후)
+    // 다음 문제로 이동 (1.2초 후)
     setTimeout(() => {
         currentQuestion++;
-
-        // 3문제마다 전면 광고 표시 (AdSense 연동 후 활성화)
-        // TODO: AdSense 연동 시 아래 주석 해제
-        // if (currentQuestion % 3 === 0 && currentQuestion < selectedQuestions.length) {
-        //     showInterstitialAd();
-        // } else {
-        //     loadQuestion();
-        // }
-
-        // 임시: 광고 없이 바로 다음 문제로
         loadQuestion();
-    }, 1500);
+    }, 1200);
 }
 
 // 점수 업데이트
@@ -98,32 +116,42 @@ function updateScore() {
     scoreElement.textContent = score;
 }
 
-// TODO: AdSense 연동 시 활성화
-// 전면 광고 표시
-// function showInterstitialAd() {
-//     // 광고 표시 및 닫기 버튼 초기화
-//     interstitialAd.classList.remove('hidden');
-//     closeAdBtn.classList.add('hidden');
-//     closeAdBtn.onclick = null; // 기존 이벤트 제거
-//
-//     // 3초 후 닫기 버튼 표시
-//     setTimeout(() => {
-//         closeAdBtn.classList.remove('hidden');
-//
-//         // 닫기 버튼 클릭 이벤트
-//         closeAdBtn.onclick = () => {
-//             interstitialAd.classList.add('hidden');
-//             closeAdBtn.classList.add('hidden');
-//             loadQuestion();
-//         };
-//     }, 3000);
-// }
-
 // 결과 표시
 function showResults() {
     quizArea.classList.add('hidden');
     resultScreen.classList.remove('hidden');
     finalScoreElement.textContent = score;
+    
+    // 점수에 따른 등급 및 메시지
+    let grade, gradeText, icon, messages;
+    
+    if (score === 10) {
+        grade = 'grade-excellent';
+        gradeText = '🏆 만점! 천재!';
+        icon = '🎉';
+        messages = resultMessages.excellent;
+    } else if (score >= 7) {
+        grade = 'grade-good';
+        gradeText = '⭐ 훌륭해요!';
+        icon = '🥳';
+        messages = resultMessages.good;
+    } else if (score >= 4) {
+        grade = 'grade-average';
+        gradeText = '👍 좋아요!';
+        icon = '😊';
+        messages = resultMessages.average;
+    } else {
+        grade = 'grade-poor';
+        gradeText = '💪 다시 도전!';
+        icon = '😅';
+        messages = resultMessages.poor;
+    }
+    
+    // UI 업데이트
+    resultIcon.textContent = icon;
+    resultMessage.textContent = messages[Math.floor(Math.random() * messages.length)];
+    scoreGrade.className = `score-grade ${grade}`;
+    scoreGrade.textContent = gradeText;
 }
 
 // 퀴즈 재시작
