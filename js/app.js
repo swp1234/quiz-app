@@ -11,8 +11,9 @@ const questionNumberElement = document.getElementById('question-number');
 const quizArea = document.getElementById('quiz-area');
 const resultScreen = document.getElementById('result-screen');
 const finalScoreElement = document.getElementById('final-score');
-const interstitialAd = document.getElementById('interstitial-ad');
-const closeAdBtn = document.getElementById('close-ad');
+// TODO: AdSense 연동 시 활성화
+// const interstitialAd = document.getElementById('interstitial-ad');
+// const closeAdBtn = document.getElementById('close-ad');
 
 // 초기화
 function init() {
@@ -97,25 +98,26 @@ function updateScore() {
     scoreElement.textContent = score;
 }
 
+// TODO: AdSense 연동 시 활성화
 // 전면 광고 표시
-function showInterstitialAd() {
-    // 광고 표시 및 닫기 버튼 초기화
-    interstitialAd.classList.remove('hidden');
-    closeAdBtn.classList.add('hidden');
-    closeAdBtn.onclick = null; // 기존 이벤트 제거
-
-    // 3초 후 닫기 버튼 표시
-    setTimeout(() => {
-        closeAdBtn.classList.remove('hidden');
-
-        // 닫기 버튼 클릭 이벤트
-        closeAdBtn.onclick = () => {
-            interstitialAd.classList.add('hidden');
-            closeAdBtn.classList.add('hidden');
-            loadQuestion();
-        };
-    }, 3000);
-}
+// function showInterstitialAd() {
+//     // 광고 표시 및 닫기 버튼 초기화
+//     interstitialAd.classList.remove('hidden');
+//     closeAdBtn.classList.add('hidden');
+//     closeAdBtn.onclick = null; // 기존 이벤트 제거
+//
+//     // 3초 후 닫기 버튼 표시
+//     setTimeout(() => {
+//         closeAdBtn.classList.remove('hidden');
+//
+//         // 닫기 버튼 클릭 이벤트
+//         closeAdBtn.onclick = () => {
+//             interstitialAd.classList.add('hidden');
+//             closeAdBtn.classList.add('hidden');
+//             loadQuestion();
+//         };
+//     }, 3000);
+// }
 
 // 결과 표시
 function showResults() {
