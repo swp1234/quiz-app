@@ -4,7 +4,7 @@
 
 ## 🌐 라이브 데모
 
-**https://swp1234.github.io/quit-app/**
+**https://swp1234.github.io/quiz-app/**
 
 ## ✨ 주요 기능
 
@@ -24,7 +24,7 @@
 ## 📂 프로젝트 구조
 
 ```
-quit-app/
+quiz-app/
 ├── index.html          # 메인 HTML
 ├── manifest.json       # PWA 설정
 ├── css/
