@@ -1,0 +1,53 @@
+{
+  "app": {
+    "title": "지식 퀴즈 앱",
+    "description": "재미있는 지식 퀴즈로 상식을 쌓아보세요! 100개의 다양한 문제에 도전하세요."
+  },
+  "header": {
+    "title": "🎯 지식 퀴즈",
+    "score": "점수",
+    "question": "문제"
+  },
+  "quiz": {
+    "loading": "퀴즈를 불러오는 중...",
+    "questionBadge": "Q"
+  },
+  "results": {
+    "title": "퀴즈 완료!",
+    "congratulations": "수고하셨습니다!",
+    "finalScore": "최종 점수",
+    "categoryStats": "📊 카테고리별 통계",
+    "wrongAnswers": "📝 오답 노트",
+    "allCorrect": "🎉 모든 문제를 맞혔습니다!",
+    "restartButton": "🔄 다시 도전하기",
+    "grades": {
+      "excellent": "🏆 만점! 천재!",
+      "good": "⭐ 훌륭해요!",
+      "average": "👍 좋아요!",
+      "poor": "💪 다시 도전!"
+    },
+    "messages": {
+      "excellent": ["완벽해요! 천재시네요! 🧠", "대단해요! 지식왕입니다! 👑", "놀라워요! 만점이에요! 🌟"],
+      "good": ["잘했어요! 훌륭합니다! 👏", "대단해요! 거의 다 맞혔어요! 💪", "멋져요! 실력이 뛰어나네요! ✨"],
+      "average": ["좋아요! 조금만 더 노력하면 돼요! 📚", "괜찮아요! 다음엔 더 잘할 거예요! 💫", "나쁘지 않아요! 계속 도전하세요! 🎯"],
+      "poor": ["아쉬워요! 다시 도전해보세요! 🔄", "괜찮아요! 공부하고 다시 도전! 📖", "포기하지 마세요! 연습이 답이에요! 💪"]
+    }
+  },
+  "explanation": {
+    "correct": "✅ 정답!",
+    "wrong": "❌ 오답",
+    "answer": "정답",
+    "noExplanation": "이 문제에 대한 해설이 없습니다.",
+    "nextButton": "다음 문제"
+  },
+  "wrongNote": {
+    "yourAnswer": "❌ 선택",
+    "correctAnswer": "✅ 정답"
+  },
+  "ads": {
+    "banner": "광고 영역"
+  },
+  "language": {
+    "select": "언어 선택"
+  }
+}

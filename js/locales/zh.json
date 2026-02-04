@@ -1,0 +1,53 @@
+{
+  "app": {
+    "title": "知识问答应用",
+    "description": "通过有趣的知识问答增长见识！挑战100道不同问题。"
+  },
+  "header": {
+    "title": "🎯 知识问答",
+    "score": "分数",
+    "question": "问题"
+  },
+  "quiz": {
+    "loading": "正在加载问答...",
+    "questionBadge": "Q"
+  },
+  "results": {
+    "title": "问答完成！",
+    "congratulations": "做得好！",
+    "finalScore": "最终得分",
+    "categoryStats": "📊 分类统计",
+    "wrongAnswers": "📝 错题本",
+    "allCorrect": "🎉 完美！全部正确！",
+    "restartButton": "🔄 再次挑战",
+    "grades": {
+      "excellent": "🏆 满分！天才！",
+      "good": "⭐ 优秀！",
+      "average": "👍 不错！",
+      "poor": "💪 再接再厉！"
+    },
+    "messages": {
+      "excellent": ["完美！你是天才！🧠", "太棒了！知识大师！👑", "惊人！满分！🌟"],
+      "good": ["做得好！优秀！👏", "太棒了！几乎全对！💪", "很棒！表现出色！✨"],
+      "average": ["不错！再努力一点！📚", "还可以！下次会更好！💫", "继续加油！不断尝试！🎯"],
+      "poor": ["别放弃！再试一次！🔄", "没关系！学习后再来！📖", "熟能生巧！💪"]
+    }
+  },
+  "explanation": {
+    "correct": "✅ 正确！",
+    "wrong": "❌ 错误",
+    "answer": "答案",
+    "noExplanation": "此题没有解析。",
+    "nextButton": "下一题"
+  },
+  "wrongNote": {
+    "yourAnswer": "❌ 你的答案",
+    "correctAnswer": "✅ 正确答案"
+  },
+  "ads": {
+    "banner": "广告区域"
+  },
+  "language": {
+    "select": "选择语言"
+  }
+}

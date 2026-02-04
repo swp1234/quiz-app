@@ -1,0 +1,53 @@
+{
+  "app": {
+    "title": "Knowledge Quiz App",
+    "description": "Build your knowledge with fun quizzes! Challenge yourself with 100 diverse questions."
+  },
+  "header": {
+    "title": "🎯 Knowledge Quiz",
+    "score": "Score",
+    "question": "Question"
+  },
+  "quiz": {
+    "loading": "Loading quiz...",
+    "questionBadge": "Q"
+  },
+  "results": {
+    "title": "Quiz Complete!",
+    "congratulations": "Well done!",
+    "finalScore": "Final Score",
+    "categoryStats": "📊 Category Statistics",
+    "wrongAnswers": "📝 Wrong Answers Review",
+    "allCorrect": "🎉 Perfect! All answers correct!",
+    "restartButton": "🔄 Try Again",
+    "grades": {
+      "excellent": "🏆 Perfect! Genius!",
+      "good": "⭐ Excellent!",
+      "average": "👍 Good job!",
+      "poor": "💪 Try again!"
+    },
+    "messages": {
+      "excellent": ["Perfect! You're a genius! 🧠", "Amazing! Knowledge master! 👑", "Incredible! Perfect score! 🌟"],
+      "good": ["Great job! Excellent! 👏", "Awesome! Almost perfect! 💪", "Fantastic! Outstanding performance! ✨"],
+      "average": ["Good! A little more effort needed! 📚", "Not bad! You'll do better next time! 💫", "Keep it up! Keep trying! 🎯"],
+      "poor": ["Don't give up! Try again! 🔄", "It's okay! Study and retry! 📖", "Practice makes perfect! 💪"]
+    }
+  },
+  "explanation": {
+    "correct": "✅ Correct!",
+    "wrong": "❌ Wrong",
+    "answer": "Answer",
+    "noExplanation": "No explanation available for this question.",
+    "nextButton": "Next Question"
+  },
+  "wrongNote": {
+    "yourAnswer": "❌ Your answer",
+    "correctAnswer": "✅ Correct answer"
+  },
+  "ads": {
+    "banner": "Advertisement"
+  },
+  "language": {
+    "select": "Select Language"
+  }
+}
