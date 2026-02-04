@@ -10,24 +10,32 @@ const quizData = [
         question: "대한민국의 수도는?",
         answers: ["서울", "부산", "인천", "대전"],
         correct: 0,
-        difficulty: "easy"
+        difficulty: "easy",
+        category: "지리",
+        explanation: "서울은 대한민국의 수도이자 최대 도시입니다. 조선시대부터 현재까지 500년 이상 수도 역할을 하고 있습니다."
     },
     {
         question: "태양계에서 가장 큰 행성은?",
         answers: ["지구", "화성", "목성", "토성"],
         correct: 2,
-        difficulty: "easy"
+        difficulty: "easy",
+        category: "과학",
+        explanation: "목성은 태양계에서 가장 큰 행성으로, 질량은 지구의 약 318배입니다. 주로 수소와 헬륨으로 이루어져 있습니다."
     },
     {
         question: "한글을 창제한 왕은?",
         answers: ["세종대왕", "태조", "정조", "영조"],
         correct: 0,
-        difficulty: "easy"
+        difficulty: "easy",
+        category: "역사",
+        explanation: "세종대왕은 조선 제4대 왕으로, 1443년 훈민정음(한글)을 창제했습니다. 백성을 위한 쉬운 문자를 만들었습니다."
     },
     {
         question: "물의 화학식은?",
         answers: ["H2O", "CO2", "O2", "NaCl"],
         correct: 0,
+        category: "과학",
+        explanation: "H2O는 수소 원자 2개와 산소 원자 1개로 이루어진 물 분자입니다.",
         difficulty: "easy"
     },
     {
