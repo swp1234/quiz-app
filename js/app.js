@@ -6,6 +6,8 @@ let score = 0;
 let selectedQuestions = [];
 let wrongAnswers = [];
 let categoryStats = {};
+let highScore = 0;
+let totalGamesPlayed = 0;
 
 // DOM 요소
 const questionText = document.getElementById('question-text');
@@ -57,6 +59,26 @@ langOptions.forEach(option => {
     });
 });
 
+// localStorage 로드
+function loadSavedData() {
+    try {
+        highScore = parseInt(localStorage.getItem('quiz_highScore')) || 0;
+        totalGamesPlayed = parseInt(localStorage.getItem('quiz_totalGames')) || 0;
+    } catch (e) {}
+}
+
+// localStorage 저장
+function saveGameData() {
+    try {
+        if (score > highScore) {
+            highScore = score;
+            localStorage.setItem('quiz_highScore', highScore);
+        }
+        totalGamesPlayed++;
+        localStorage.setItem('quiz_totalGames', totalGamesPlayed);
+    } catch (e) {}
+}
+
 // 초기화
 async function init() {
     // i18n 초기화
@@ -66,6 +88,9 @@ async function init() {
     // 현재 언어 활성화 표시
     const currentLang = i18n.getCurrentLanguage();
     document.querySelector(`[data-lang="${currentLang}"]`)?.classList.add('active');
+
+    // localStorage에서 데이터 로드
+    loadSavedData();
 
     // 퀴즈 데이터 셔플 및 10개 선택
     selectedQuestions = shuffleArray([...quizData]).slice(0, 10);
@@ -192,7 +217,15 @@ function closeExplanation() {
 
     // 다음 문제로 이동
     currentQuestion++;
-    loadQuestion();
+
+    // 3문제마다 전면 광고 표시 (마지막 문제 제외)
+    if (currentQuestion > 0 && currentQuestion % 3 === 0 && currentQuestion < selectedQuestions.length) {
+        showInterstitialAd().then(() => {
+            loadQuestion();
+        });
+    } else {
+        loadQuestion();
+    }
 }
 
 // 점수 업데이트
@@ -205,6 +238,9 @@ function showResults() {
     quizArea.classList.add('hidden');
     resultScreen.classList.remove('hidden');
     finalScoreElement.textContent = score;
+
+    // 게임 데이터 저장
+    saveGameData();
 
     // 점수에 따른 등급 및 메시지
     let grade, gradeText, icon, messagesKey;
@@ -311,7 +347,205 @@ function restartQuiz() {
     init();
 }
 
+// 전면 광고 표시
+function showInterstitialAd() {
+    return new Promise((resolve) => {
+        const adOverlay = document.getElementById('interstitial-ad');
+        const closeBtn = document.getElementById('close-ad');
+        const countdown = document.getElementById('countdown');
+
+        adOverlay.classList.remove('hidden');
+        closeBtn.disabled = true;
+
+        let seconds = 5;
+        countdown.textContent = seconds;
+        closeBtn.textContent = `닫기 (${seconds})`;
+
+        const timer = setInterval(() => {
+            seconds--;
+            countdown.textContent = seconds;
+            closeBtn.textContent = `닫기 (${seconds})`;
+
+            if (seconds <= 0) {
+                clearInterval(timer);
+                closeBtn.disabled = false;
+                closeBtn.textContent = '닫기';
+
+                closeBtn.onclick = () => {
+                    adOverlay.classList.add('hidden');
+                    closeBtn.textContent = '닫기 (5)';
+                    resolve();
+                };
+            }
+        }, 1000);
+    });
+}
+
+// 프리미엄 분석 콘텐츠 생성
+function generatePremiumAnalysis() {
+    const totalQuestions = selectedQuestions.length;
+    const correctRate = Math.round((score / totalQuestions) * 100);
+
+    // 카테고리별 분석
+    let categoryAnalysis = '';
+    const sortedCategories = Object.entries(categoryStats).sort((a, b) => {
+        const rateA = a[1].correct / a[1].total;
+        const rateB = b[1].correct / b[1].total;
+        return rateB - rateA;
+    });
+
+    let strongCategories = [];
+    let weakCategories = [];
+
+    sortedCategories.forEach(([cat, stats]) => {
+        const rate = Math.round((stats.correct / stats.total) * 100);
+        if (rate >= 70) strongCategories.push(cat);
+        else weakCategories.push(cat);
+    });
+
+    // 학습 추천
+    let studyTips = [];
+    if (weakCategories.length > 0) {
+        studyTips.push(`📚 <strong>${weakCategories.join(', ')}</strong> 분야의 학습이 필요합니다.`);
+    }
+    if (strongCategories.length > 0) {
+        studyTips.push(`💪 <strong>${strongCategories.join(', ')}</strong> 분야에서 뛰어난 실력을 보여주셨습니다!`);
+    }
+
+    // 오답 패턴 분석
+    let patternAnalysis = '';
+    if (wrongAnswers.length > 0) {
+        const wrongCategories = {};
+        wrongAnswers.forEach(w => {
+            wrongCategories[w.category] = (wrongCategories[w.category] || 0) + 1;
+        });
+        const mostWrong = Object.entries(wrongCategories).sort((a, b) => b[1] - a[1])[0];
+        patternAnalysis = `가장 많이 틀린 분야: <strong>${mostWrong[0]}</strong> (${mostWrong[1]}문제)`;
+    }
+
+    // 레벨 평가
+    let level, levelDesc;
+    if (correctRate >= 90) {
+        level = '🏆 마스터';
+        levelDesc = '상위 5% 수준의 놀라운 지식 수준입니다. 거의 모든 분야에서 탁월한 이해도를 보여주셨습니다.';
+    } else if (correctRate >= 70) {
+        level = '🥇 전문가';
+        levelDesc = '상위 20% 수준의 우수한 지식입니다. 몇 가지 분야만 보완하면 마스터 레벨에 도달할 수 있습니다.';
+    } else if (correctRate >= 50) {
+        level = '🥈 중급자';
+        levelDesc = '평균 이상의 상식 수준입니다. 약한 분야를 집중 학습하면 빠르게 성장할 수 있습니다.';
+    } else {
+        level = '🥉 초급자';
+        levelDesc = '아직 배울 것이 많지만, 퀴즈를 반복하면 빠르게 실력이 향상됩니다!';
+    }
+
+    // 게임 통계
+    let statsHtml = `
+        <div class="premium-stats-grid">
+            <div class="premium-stat">
+                <div class="premium-stat-value">${totalGamesPlayed}</div>
+                <div class="premium-stat-label">총 게임 수</div>
+            </div>
+            <div class="premium-stat">
+                <div class="premium-stat-value">${highScore}/10</div>
+                <div class="premium-stat-label">최고 점수</div>
+            </div>
+            <div class="premium-stat">
+                <div class="premium-stat-value">${correctRate}%</div>
+                <div class="premium-stat-label">이번 정답률</div>
+            </div>
+        </div>
+    `;
+
+    let html = `
+        <div class="premium-analysis">
+            <div class="premium-level">
+                <div class="premium-level-badge">${level}</div>
+                <p>${levelDesc}</p>
+            </div>
+
+            ${statsHtml}
+
+            <div class="premium-section-block">
+                <h4>📊 분야별 상세 분석</h4>
+                ${sortedCategories.map(([cat, stats]) => {
+                    const rate = Math.round((stats.correct / stats.total) * 100);
+                    const barColor = rate >= 70 ? '#00d26a' : rate >= 40 ? '#ffd93d' : '#ff6b6b';
+                    return `
+                        <div class="premium-category-bar">
+                            <div class="bar-label">
+                                <span>${cat}</span>
+                                <span>${stats.correct}/${stats.total} (${rate}%)</span>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill" style="width: ${rate}%; background: ${barColor};"></div>
+                            </div>
+                        </div>
+                    `;
+                }).join('')}
+            </div>
+
+            ${studyTips.length > 0 ? `
+            <div class="premium-section-block">
+                <h4>🎯 학습 추천</h4>
+                <ul class="premium-tips">
+                    ${studyTips.map(tip => `<li>${tip}</li>`).join('')}
+                </ul>
+            </div>
+            ` : ''}
+
+            ${patternAnalysis ? `
+            <div class="premium-section-block">
+                <h4>🔍 오답 패턴 분석</h4>
+                <p>${patternAnalysis}</p>
+                ${wrongAnswers.length > 0 ? `
+                <div class="premium-wrong-detail">
+                    ${wrongAnswers.map((w, i) => `
+                        <div class="wrong-item">
+                            <div class="wrong-q">${i + 1}. ${w.question}</div>
+                            <div class="wrong-a">❌ ${w.yourAnswer} → ✅ ${w.correctAnswer}</div>
+                            <div class="wrong-tip">💡 ${w.explanation}</div>
+                        </div>
+                    `).join('')}
+                </div>
+                ` : ''}
+            </div>
+            ` : ''}
+        </div>
+    `;
+
+    return html;
+}
+
+// 프리미엄 분석 표시
+function showPremiumAnalysis() {
+    showInterstitialAd().then(() => {
+        const premiumModal = document.getElementById('premium-modal');
+        const premiumBody = document.getElementById('premium-body');
+        premiumBody.innerHTML = generatePremiumAnalysis();
+        premiumModal.classList.remove('hidden');
+    });
+}
+
+// Service Worker 등록
+function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+            .then(() => console.log('Service Worker registered'))
+            .catch(err => console.log('SW registration failed:', err));
+    }
+}
+
 // 페이지 로드 시 초기화
 window.addEventListener('DOMContentLoaded', async () => {
     await init();
+    registerServiceWorker();
+
+    // 프리미엄 분석 버튼
+    document.getElementById('premium-analysis-btn').addEventListener('click', showPremiumAnalysis);
+
+    // 프리미엄 모달 닫기
+    document.getElementById('premium-close').addEventListener('click', () => {
+        document.getElementById('premium-modal').classList.add('hidden');
+    });
 });

@@ -24,6 +24,11 @@
             </div>
         </div>
 
+        <!-- 상단 광고 배너 -->
+        <div class="ad-banner ad-top">
+            <span class="ad-placeholder" data-i18n="ads.banner">광고 영역</span>
+        </div>
+
         <!-- 앱 헤더 -->
         <header class="app-header">
             <h1 data-i18n="header.title">🎯 지식 퀴즈</h1>
@@ -67,7 +72,38 @@
                     <span class="ad-placeholder" data-i18n="ads.banner">광고 영역</span>
                 </div>
 
+                <!-- 프리미엄 분석 버튼 -->
+                <div class="premium-section">
+                    <button class="premium-btn" id="premium-analysis-btn">
+                        <span class="premium-badge">AI</span>
+                        <span data-i18n="premium.analysisButton">🧠 AI 심층 분석 보기</span>
+                    </button>
+                </div>
+
                 <button class="btn btn-primary" onclick="restartQuiz()"><span data-i18n="results.restartButton">🔄 다시 도전하기</span></button>
+            </div>
+
+            <!-- 프리미엄 분석 모달 -->
+            <div id="premium-modal" class="modal hidden">
+                <div class="modal-content premium-modal-content">
+                    <div class="modal-header">
+                        <h3>🧠 AI 심층 분석</h3>
+                        <button class="modal-close" id="premium-close">✕</button>
+                    </div>
+                    <div class="modal-body" id="premium-body">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 전면 광고 오버레이 -->
+            <div id="interstitial-ad" class="interstitial-overlay hidden">
+                <div class="interstitial-content">
+                    <p class="ad-label" data-i18n="ads.interstitial">광고</p>
+                    <div class="ad-placeholder-large" data-i18n="ads.banner">광고 영역</div>
+                    <button class="close-ad-btn" id="close-ad" disabled>
+                        닫기 (<span id="countdown">5</span>)
+                    </button>
+                </div>
             </div>
 
             <!-- 해설 모달 -->
@@ -84,6 +120,11 @@
                 </div>
             </div>
         </main>
+    </div>
+
+    <!-- 하단 광고 배너 -->
+    <div class="ad-banner ad-bottom">
+        <span class="ad-placeholder" data-i18n="ads.banner">광고 영역</span>
     </div>
 
     <script src="js/i18n.js"></script>
