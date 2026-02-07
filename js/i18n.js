@@ -2,9 +2,9 @@
 
 class I18n {
     constructor() {
-        this.currentLang = this.detectLanguage();
         this.translations = {};
         this.supportedLanguages = ['ko', 'en', 'zh', 'hi'];
+        this.currentLang = this.detectLanguage();
     }
 
     // 브라우저 언어 감지
@@ -14,12 +14,12 @@ class I18n {
 
         // LocalStorage에 저장된 언어 우선
         const savedLang = localStorage.getItem('app_language');
-        if (savedLang && this.supportedLanguages.includes(savedLang)) {
+        if (savedLang && this.supportedLanguages && this.supportedLanguages.includes(savedLang)) {
             return savedLang;
         }
 
         // 지원하는 언어인지 확인
-        if (this.supportedLanguages.includes(langCode)) {
+        if (this.supportedLanguages && this.supportedLanguages.includes(langCode)) {
             return langCode;
         }
 

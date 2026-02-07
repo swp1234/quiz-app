@@ -81,9 +81,29 @@ function saveGameData() {
 
 // 초기화
 async function init() {
-    // i18n 초기화
-    await i18n.loadTranslations(i18n.getCurrentLanguage());
-    i18n.updateUI();
+    // quizData 로드 확인
+    if (typeof quizData === 'undefined' || !quizData || quizData.length === 0) {
+        console.error('quizData가 로드되지 않았습니다.');
+        questionText.textContent = '퀴즈 데이터를 불러오는 중...';
+        // 잠시 후 재시도
+        setTimeout(() => {
+            if (typeof quizData !== 'undefined' && quizData && quizData.length > 0) {
+                init();
+            } else {
+                questionText.textContent = '퀴즈 데이터를 불러올 수 없습니다. 페이지를 새로고침해주세요.';
+            }
+        }, 100);
+        return;
+    }
+
+    // i18n 초기화 확인
+    if (typeof i18n === 'undefined') {
+        console.error('i18n이 로드되지 않았습니다.');
+        // i18n 없이도 기본 기능은 작동하도록 계속 진행
+    } else {
+        await i18n.loadTranslations(i18n.getCurrentLanguage());
+        i18n.updateUI();
+    }
 
     // 현재 언어 활성화 표시
     const currentLang = i18n.getCurrentLanguage();
@@ -115,12 +135,24 @@ function shuffleArray(array) {
 
 // 문제 로드
 function loadQuestion() {
+    if (!selectedQuestions || selectedQuestions.length === 0) {
+        console.error('selectedQuestions가 비어있습니다.');
+        questionText.textContent = '퀴즈 데이터를 불러오는 중...';
+        return;
+    }
+
     if (currentQuestion >= selectedQuestions.length) {
         showResults();
         return;
     }
 
     const question = selectedQuestions[currentQuestion];
+    
+    if (!question || !question.question) {
+        console.error('질문 데이터가 없습니다.');
+        questionText.textContent = '질문을 불러올 수 없습니다.';
+        return;
+    }
     
     // 문제 배지 업데이트
     questionBadge.textContent = `Q${currentQuestion + 1}`;
@@ -341,10 +373,10 @@ function showWrongAnswers() {
 }
 
 // 퀴즈 재시작
-function restartQuiz() {
+async function restartQuiz() {
     resultScreen.classList.add('hidden');
     quizArea.classList.remove('hidden');
-    init();
+    await init();
 }
 
 // 전면 광고 표시
@@ -538,6 +570,36 @@ function registerServiceWorker() {
 
 // 페이지 로드 시 초기화
 window.addEventListener('DOMContentLoaded', async () => {
+    // DOM 요소 확인
+    const questionTextEl = document.getElementById('question-text');
+    
+    // i18n과 quizData 로드 확인
+    if (typeof i18n === 'undefined') {
+        console.error('i18n.js가 로드되지 않았습니다.');
+        if (questionTextEl) questionTextEl.textContent = '앱을 불러오는 중...';
+        setTimeout(() => {
+            if (typeof i18n !== 'undefined') {
+                window.dispatchEvent(new Event('DOMContentLoaded'));
+            } else {
+                if (questionTextEl) questionTextEl.textContent = '앱을 불러올 수 없습니다. 페이지를 새로고침해주세요.';
+            }
+        }, 100);
+        return;
+    }
+
+    if (typeof quizData === 'undefined') {
+        console.error('quiz-data.js가 로드되지 않았습니다.');
+        if (questionTextEl) questionTextEl.textContent = '퀴즈 데이터를 불러오는 중...';
+        setTimeout(() => {
+            if (typeof quizData !== 'undefined') {
+                window.dispatchEvent(new Event('DOMContentLoaded'));
+            } else {
+                if (questionTextEl) questionTextEl.textContent = '퀴즈 데이터를 불러올 수 없습니다. 페이지를 새로고침해주세요.';
+            }
+        }, 100);
+        return;
+    }
+
     await init();
     registerServiceWorker();
 
