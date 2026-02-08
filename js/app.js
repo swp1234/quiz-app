@@ -323,8 +323,8 @@ function closeExplanation() {
     // 다음 문제로 이동
     currentQuestion++;
 
-    // 3문제마다 전면 광고 표시 (마지막 문제 제외)
-    if (currentQuestion > 0 && currentQuestion % 3 === 0 && currentQuestion < selectedQuestions.length) {
+    // 5문제마다 전면 광고 표시 (마지막 문제 제외)
+    if (currentQuestion > 0 && currentQuestion % 5 === 0 && currentQuestion < selectedQuestions.length) {
         showInterstitialAd().then(() => {
             loadQuestion();
         });
