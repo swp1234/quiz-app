@@ -1,0 +1,53 @@
+{
+  "app": {
+    "title": "Allgemeinwissens-Quiz App",
+    "description": "Baue dein Wissen mit unterhaltsamen Quizzen auf! Fordere dich selbst mit 100 vielfältigen Fragen heraus."
+  },
+  "header": {
+    "title": "🎯 Allgemeinwissens-Quiz",
+    "score": "Punktzahl",
+    "question": "Frage"
+  },
+  "quiz": {
+    "loading": "Quiz wird geladen...",
+    "questionBadge": "F"
+  },
+  "results": {
+    "title": "Quiz fertig!",
+    "congratulations": "Gut gemacht!",
+    "finalScore": "Endgültige Punktzahl",
+    "categoryStats": "📊 Kategoriestatistik",
+    "wrongAnswers": "📝 Überprüfung falscher Antworten",
+    "allCorrect": "🎉 Perfekt! Alle Antworten korrekt!",
+    "restartButton": "🔄 Nochmal versuchen",
+    "grades": {
+      "excellent": "🏆 Perfekt! Genie!",
+      "good": "⭐ Ausgezeichnet!",
+      "average": "👍 Gute Leistung!",
+      "poor": "💪 Versuche es nochmal!"
+    },
+    "messages": {
+      "excellent": ["Perfekt! Du bist ein Genie! 🧠", "Erstaunlich! Wissens-Meister! 👑", "Unglaublich! Perfekte Punktzahl! 🌟"],
+      "good": ["Großartig! Ausgezeichnet! 👏", "Fantastisch! Fast perfekt! 💪", "Großartig! Hervorragende Leistung! ✨"],
+      "average": ["Gut! Ein wenig mehr Anstrengung nötig! 📚", "Nicht schlecht! Du machst es nächste Mal besser! 💫", "Weitermachen! Bleib am Ball! 🎯"],
+      "poor": ["Gib nicht auf! Versuche es nochmal! 🔄", "Das ist okay! Lern und versuch nochmal! 📖", "Übung macht den Meister! 💪"]
+    }
+  },
+  "explanation": {
+    "correct": "✅ Korrekt!",
+    "wrong": "❌ Falsch",
+    "answer": "Antwort",
+    "noExplanation": "Für diese Frage ist keine Erklärung verfügbar.",
+    "nextButton": "Nächste Frage"
+  },
+  "wrongNote": {
+    "yourAnswer": "❌ Deine Antwort",
+    "correctAnswer": "✅ Korrekte Antwort"
+  },
+  "ads": {
+    "banner": "Werbung"
+  },
+  "language": {
+    "select": "Sprache auswählen"
+  }
+}

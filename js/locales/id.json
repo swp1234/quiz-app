@@ -1,0 +1,53 @@
+{
+  "app": {
+    "title": "Aplikasi Kuis Pengetahuan",
+    "description": "Bangun pengetahuan Anda dengan kuis yang menyenangkan! Tantang diri Anda dengan 100 pertanyaan yang beragam."
+  },
+  "header": {
+    "title": "🎯 Kuis Pengetahuan",
+    "score": "Skor",
+    "question": "Pertanyaan"
+  },
+  "quiz": {
+    "loading": "Memuat kuis...",
+    "questionBadge": "T"
+  },
+  "results": {
+    "title": "Kuis Selesai!",
+    "congratulations": "Bagus sekali!",
+    "finalScore": "Skor Final",
+    "categoryStats": "📊 Statistik Kategori",
+    "wrongAnswers": "📝 Tinjau Jawaban Salah",
+    "allCorrect": "🎉 Sempurna! Semua jawaban benar!",
+    "restartButton": "🔄 Coba Lagi",
+    "grades": {
+      "excellent": "🏆 Sempurna! Jenius!",
+      "good": "⭐ Luar Biasa!",
+      "average": "👍 Pekerjaan bagus!",
+      "poor": "💪 Coba lagi!"
+    },
+    "messages": {
+      "excellent": ["Sempurna! Anda adalah jenius! 🧠", "Menakjubkan! Ahli pengetahuan! 👑", "Luar biasa! Skor sempurna! 🌟"],
+      "good": ["Pekerjaan bagus! Luar biasa! 👏", "Hebat! Hampir sempurna! 💪", "Fantastis! Kinerja luar biasa! ✨"],
+      "average": ["Bagus! Usaha sedikit lebih keras diperlukan! 📚", "Tidak buruk! Anda akan melakukan lebih baik lagi! 💫", "Terus begini! Terus coba! 🎯"],
+      "poor": ["Jangan menyerah! Coba lagi! 🔄", "Tidak apa-apa! Belajar dan coba lagi! 📖", "Praktik membuat sempurna! 💪"]
+    }
+  },
+  "explanation": {
+    "correct": "✅ Benar!",
+    "wrong": "❌ Salah",
+    "answer": "Jawaban",
+    "noExplanation": "Tidak ada penjelasan yang tersedia untuk pertanyaan ini.",
+    "nextButton": "Pertanyaan Berikutnya"
+  },
+  "wrongNote": {
+    "yourAnswer": "❌ Jawaban Anda",
+    "correctAnswer": "✅ Jawaban yang benar"
+  },
+  "ads": {
+    "banner": "Iklan"
+  },
+  "language": {
+    "select": "Pilih Bahasa"
+  }
+}

@@ -8,6 +8,9 @@ let wrongAnswers = [];
 let categoryStats = {};
 let highScore = 0;
 let totalGamesPlayed = 0;
+let questionTimer = null;
+let timeLeft = 0;
+const TIME_PER_QUESTION = 15; // seconds
 
 // DOM 요소
 const questionText = document.getElementById('question-text');
@@ -172,9 +175,78 @@ function loadQuestion() {
 
     // 문제 번호 업데이트
     questionNumberElement.textContent = currentQuestion + 1;
-    
+
     // 프로그레스 바 업데이트
     updateProgress();
+
+    // Start timer
+    startTimer();
+}
+
+// Timer functions
+function startTimer() {
+    clearInterval(questionTimer);
+    timeLeft = TIME_PER_QUESTION;
+    updateTimerDisplay();
+
+    questionTimer = setInterval(() => {
+        timeLeft--;
+        updateTimerDisplay();
+        if (timeLeft <= 0) {
+            clearInterval(questionTimer);
+            handleTimeout();
+        }
+    }, 1000);
+}
+
+function updateTimerDisplay() {
+    let timerEl = document.getElementById('question-timer');
+    if (!timerEl) {
+        timerEl = document.createElement('div');
+        timerEl.id = 'question-timer';
+        timerEl.style.cssText = 'text-align:center;margin-bottom:12px;';
+        const quizHeader = document.querySelector('.quiz-header');
+        if (quizHeader) quizHeader.after(timerEl);
+    }
+    const pct = (timeLeft / TIME_PER_QUESTION) * 100;
+    const color = timeLeft <= 5 ? '#e74c3c' : timeLeft <= 10 ? '#f39c12' : '#27ae60';
+    timerEl.innerHTML = `
+        <div style="display:flex;align-items:center;gap:8px;justify-content:center;">
+            <div style="flex:1;max-width:200px;height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;">
+                <div style="width:${pct}%;height:100%;background:${color};border-radius:3px;transition:width 0.3s ease,background 0.3s;"></div>
+            </div>
+            <span style="font-size:14px;font-weight:700;color:${color};min-width:28px;">${timeLeft}s</span>
+        </div>
+    `;
+}
+
+function handleTimeout() {
+    // Time's up - treat as wrong answer
+    const question = selectedQuestions[currentQuestion];
+    const buttons = document.querySelectorAll('.answer-btn');
+    buttons.forEach(btn => btn.disabled = true);
+
+    // Mark correct answer
+    buttons[question.correct].classList.add('correct');
+
+    // Track wrong answer
+    const category = question.category || '기타';
+    if (!categoryStats[category]) {
+        categoryStats[category] = { correct: 0, total: 0 };
+    }
+    categoryStats[category].total++;
+    wrongAnswers.push({
+        question: question.question,
+        yourAnswer: '시간 초과',
+        correctAnswer: question.answers[question.correct],
+        category: category
+    });
+
+    // Proceed to next question
+    setTimeout(() => {
+        currentQuestion++;
+        loadQuestion();
+    }, 1500);
 }
 
 // 프로그레스 바 업데이트
@@ -185,6 +257,7 @@ function updateProgress() {
 
 // 답변 선택
 function selectAnswer(selectedIndex) {
+    clearInterval(questionTimer); // Stop timer on answer
     const question = selectedQuestions[currentQuestion];
     const buttons = document.querySelectorAll('.answer-btn');
     const isCorrect = selectedIndex === question.correct;
@@ -267,6 +340,9 @@ function updateScore() {
 
 // 결과 표시
 function showResults() {
+    clearInterval(questionTimer); // Clear timer
+    const timerEl = document.getElementById('question-timer');
+    if (timerEl) timerEl.remove();
     quizArea.classList.add('hidden');
     resultScreen.classList.remove('hidden');
     finalScoreElement.textContent = score;

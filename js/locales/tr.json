@@ -1,0 +1,53 @@
+{
+  "app": {
+    "title": "Bilgi Sınav Uygulaması",
+    "description": "Eğlenceli sınavlarla bilgini geliştir! 100 çeşitli soru ile kendini zorlat."
+  },
+  "header": {
+    "title": "🎯 Bilgi Sınav",
+    "score": "Puan",
+    "question": "Soru"
+  },
+  "quiz": {
+    "loading": "Sınav yükleniyor...",
+    "questionBadge": "S"
+  },
+  "results": {
+    "title": "Sınav Tamamlandı!",
+    "congratulations": "Aferin!",
+    "finalScore": "Final Puanı",
+    "categoryStats": "📊 Kategori İstatistikleri",
+    "wrongAnswers": "📝 Yanlış Cevaplar İncelemesi",
+    "allCorrect": "🎉 Mükemmel! Tüm cevaplar doğru!",
+    "restartButton": "🔄 Tekrar Dene",
+    "grades": {
+      "excellent": "🏆 Mükemmel! Deha!",
+      "good": "⭐ Harika!",
+      "average": "👍 İyi iş!",
+      "poor": "💪 Tekrar dene!"
+    },
+    "messages": {
+      "excellent": ["Mükemmel! Dehasın! 🧠", "İnanılmaz! Bilgi ustası! 👑", "Harika! Mükemmel skor! 🌟"],
+      "good": ["Harika iş! Mükemmel! 👏", "Muhteşem! Neredeyse mükemmel! 💪", "Fantastik! Olağanüstü performans! ✨"],
+      "average": ["İyi! Biraz daha çalış gerekli! 📚", "Kötü değil! Başta daha iyi yaparsın! 💫", "Devam et! Çalışmaya devam et! 🎯"],
+      "poor": ["Pes etme! Tekrar dene! 🔄", "Sorun yok! Çalış ve yeniden dene! 📖", "Alıştırma mükemmel yapar! 💪"]
+    }
+  },
+  "explanation": {
+    "correct": "✅ Doğru!",
+    "wrong": "❌ Yanlış",
+    "answer": "Cevap",
+    "noExplanation": "Bu soru için açıklama bulunmamaktadır.",
+    "nextButton": "Sonraki Soru"
+  },
+  "wrongNote": {
+    "yourAnswer": "❌ Senin cevabın",
+    "correctAnswer": "✅ Doğru cevap"
+  },
+  "ads": {
+    "banner": "Reklam"
+  },
+  "language": {
+    "select": "Dil Seç"
+  }
+}

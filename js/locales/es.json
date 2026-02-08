@@ -1,0 +1,53 @@
+{
+  "app": {
+    "title": "Aplicación de Cuestionario de Conocimiento",
+    "description": "¡Construye tu conocimiento con cuestionarios divertidos! Desafiarte a ti mismo con 100 preguntas diversas."
+  },
+  "header": {
+    "title": "🎯 Cuestionario de Conocimiento",
+    "score": "Puntuación",
+    "question": "Pregunta"
+  },
+  "quiz": {
+    "loading": "Cargando cuestionario...",
+    "questionBadge": "P"
+  },
+  "results": {
+    "title": "¡Cuestionario Completado!",
+    "congratulations": "¡Bien hecho!",
+    "finalScore": "Puntuación Final",
+    "categoryStats": "📊 Estadísticas de Categoría",
+    "wrongAnswers": "📝 Revisión de Respuestas Incorrectas",
+    "allCorrect": "🎉 ¡Perfecto! ¡Todas las respuestas correctas!",
+    "restartButton": "🔄 Intentar de Nuevo",
+    "grades": {
+      "excellent": "🏆 ¡Perfecto! ¡Genio!",
+      "good": "⭐ ¡Excelente!",
+      "average": "👍 ¡Buen trabajo!",
+      "poor": "💪 ¡Intenta de nuevo!"
+    },
+    "messages": {
+      "excellent": ["¡Perfecto! ¡Eres un genio! 🧠", "¡Increíble! ¡Maestro del conocimiento! 👑", "¡Increíble! ¡Puntuación perfecta! 🌟"],
+      "good": ["¡Excelente! ¡Excelente! 👏", "¡Impresionante! ¡Casi perfecto! 💪", "¡Fantástico! ¡Rendimiento excepcional! ✨"],
+      "average": ["¡Bien! ¡Se necesita un poco más de esfuerzo! 📚", "¡No está mal! ¡Lo harás mejor la próxima vez! 💫", "¡Sigue adelante! ¡Sigue intentando! 🎯"],
+      "poor": ["¡No te rindas! ¡Intenta de nuevo! 🔄", "¡Está bien! ¡Estudia e intenta de nuevo! 📖", "¡La práctica hace al maestro! 💪"]
+    }
+  },
+  "explanation": {
+    "correct": "✅ ¡Correcto!",
+    "wrong": "❌ Incorrecto",
+    "answer": "Respuesta",
+    "noExplanation": "No hay explicación disponible para esta pregunta.",
+    "nextButton": "Siguiente Pregunta"
+  },
+  "wrongNote": {
+    "yourAnswer": "❌ Tu respuesta",
+    "correctAnswer": "✅ Respuesta correcta"
+  },
+  "ads": {
+    "banner": "Publicidad"
+  },
+  "language": {
+    "select": "Seleccionar Idioma"
+  }
+}

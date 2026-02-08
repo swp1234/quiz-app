@@ -1,0 +1,53 @@
+{
+  "app": {
+    "title": "Application de Quiz de Connaissance",
+    "description": "Construis tes connaissances avec des quiz amusants! Mets-toi au défi avec 100 questions diverses."
+  },
+  "header": {
+    "title": "🎯 Quiz de Connaissance",
+    "score": "Score",
+    "question": "Question"
+  },
+  "quiz": {
+    "loading": "Chargement du quiz...",
+    "questionBadge": "Q"
+  },
+  "results": {
+    "title": "Quiz Terminé!",
+    "congratulations": "Bien joué!",
+    "finalScore": "Score Final",
+    "categoryStats": "📊 Statistiques par Catégorie",
+    "wrongAnswers": "📝 Examen des Mauvaises Réponses",
+    "allCorrect": "🎉 Parfait! Toutes les réponses correctes!",
+    "restartButton": "🔄 Réessayer",
+    "grades": {
+      "excellent": "🏆 Parfait! Génie!",
+      "good": "⭐ Excellent!",
+      "average": "👍 Bon travail!",
+      "poor": "💪 Réessaie!"
+    },
+    "messages": {
+      "excellent": ["Parfait! Tu es un génie! 🧠", "Incroyable! Maître de la connaissance! 👑", "Incroyable! Score parfait! 🌟"],
+      "good": ["Excellent travail! Excellent! 👏", "Génial! Presque parfait! 💪", "Fantastique! Performance exceptionnelle! ✨"],
+      "average": ["Bien! Un peu plus d'effort nécessaire! 📚", "Pas mal! Tu feras mieux la prochaine fois! 💫", "Continue! Garde l'effort! 🎯"],
+      "poor": ["N'abandonne pas! Réessaie! 🔄", "C'est d'accord! Étudie et réessaie! 📖", "La pratique rend parfait! 💪"]
+    }
+  },
+  "explanation": {
+    "correct": "✅ Correct!",
+    "wrong": "❌ Incorrect",
+    "answer": "Réponse",
+    "noExplanation": "Aucune explication disponible pour cette question.",
+    "nextButton": "Question Suivante"
+  },
+  "wrongNote": {
+    "yourAnswer": "❌ Ta réponse",
+    "correctAnswer": "✅ Bonne réponse"
+  },
+  "ads": {
+    "banner": "Publicité"
+  },
+  "language": {
+    "select": "Sélectionner la Langue"
+  }
+}

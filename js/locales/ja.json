@@ -1,0 +1,53 @@
+{
+  "app": {
+    "title": "Knowledge Quiz App",
+    "description": "楽しいクイズで知識を広げよう！100個の多様な問題でチャレンジしてください。"
+  },
+  "header": {
+    "title": "🎯 Knowledge Quiz",
+    "score": "スコア",
+    "question": "問題"
+  },
+  "quiz": {
+    "loading": "クイズを読み込み中...",
+    "questionBadge": "Q"
+  },
+  "results": {
+    "title": "クイズ完了！",
+    "congratulations": "よくできました！",
+    "finalScore": "最終スコア",
+    "categoryStats": "📊 カテゴリー統計",
+    "wrongAnswers": "📝 不正解の復習",
+    "allCorrect": "🎉 完璧！すべて正解です！",
+    "restartButton": "🔄 もう一度試す",
+    "grades": {
+      "excellent": "🏆 完璧！天才ですね！",
+      "good": "⭐ 素晴らしい！",
+      "average": "👍 よくできました！",
+      "poor": "💪 もう一度試しましょう！"
+    },
+    "messages": {
+      "excellent": ["完璧です！あなたは天才です！ 🧠", "素晴らしい！知識の達人！ 👑", "信じられない！完璧なスコア！ 🌟"],
+      "good": ["素晴らしい！素晴らしい！ 👏", "すごい！ほぼ完璧！ 💪", "ファンタスティック！素晴らしい成績！ ✨"],
+      "average": ["良い！もう少し努力が必要！ 📚", "悪くない！次はもっとできるはず！ 💫", "頑張ってください！挑戦し続けましょう！ 🎯"],
+      "poor": ["諦めないで！もう一度試してください！ 🔄", "大丈夫です！勉強してもう一度！ 📖", "練習が完璧にします！ 💪"]
+    }
+  },
+  "explanation": {
+    "correct": "✅ 正解！",
+    "wrong": "❌ 不正解",
+    "answer": "答え",
+    "noExplanation": "この問題に説明はありません。",
+    "nextButton": "次の問題へ"
+  },
+  "wrongNote": {
+    "yourAnswer": "❌ あなたの回答",
+    "correctAnswer": "✅ 正解"
+  },
+  "ads": {
+    "banner": "広告"
+  },
+  "language": {
+    "select": "言語を選択"
+  }
+}

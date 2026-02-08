@@ -1,0 +1,53 @@
+{
+  "app": {
+    "title": "Aplicativo de Quiz de Conhecimento",
+    "description": "Desenvolva seu conhecimento com quizzes divertidos! Desafie-se com 100 questões diversas."
+  },
+  "header": {
+    "title": "🎯 Quiz de Conhecimento",
+    "score": "Pontuação",
+    "question": "Questão"
+  },
+  "quiz": {
+    "loading": "Carregando quiz...",
+    "questionBadge": "Q"
+  },
+  "results": {
+    "title": "Quiz Completo!",
+    "congratulations": "Bem feito!",
+    "finalScore": "Pontuação Final",
+    "categoryStats": "📊 Estatísticas de Categorias",
+    "wrongAnswers": "📝 Revisão de Respostas Incorretas",
+    "allCorrect": "🎉 Perfeito! Todas as respostas corretas!",
+    "restartButton": "🔄 Tentar Novamente",
+    "grades": {
+      "excellent": "🏆 Perfeito! Gênio!",
+      "good": "⭐ Excelente!",
+      "average": "👍 Bom trabalho!",
+      "poor": "💪 Tente novamente!"
+    },
+    "messages": {
+      "excellent": ["Perfeito! Você é um gênio! 🧠", "Incrível! Mestre do conhecimento! 👑", "Incrível! Pontuação perfeita! 🌟"],
+      "good": ["Ótimo trabalho! Excelente! 👏", "Incrível! Quase perfeito! 💪", "Fantástico! Desempenho excepcional! ✨"],
+      "average": ["Bom! Um pouco mais de esforço necessário! 📚", "Não é ruim! Você fará melhor da próxima vez! 💫", "Continue! Continue tentando! 🎯"],
+      "poor": ["Não desista! Tente novamente! 🔄", "Tudo bem! Estude e tente novamente! 📖", "A prática leva à perfeição! 💪"]
+    }
+  },
+  "explanation": {
+    "correct": "✅ Correto!",
+    "wrong": "❌ Incorreto",
+    "answer": "Resposta",
+    "noExplanation": "Nenhuma explicação disponível para esta questão.",
+    "nextButton": "Próxima Questão"
+  },
+  "wrongNote": {
+    "yourAnswer": "❌ Sua resposta",
+    "correctAnswer": "✅ Resposta correta"
+  },
+  "ads": {
+    "banner": "Publicidade"
+  },
+  "language": {
+    "select": "Selecionar Idioma"
+  }
+}
