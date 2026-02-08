@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="재미있는 지식 퀴즈로 상식을 쌓아보세요! 100개의 다양한 문제에 도전하세요.">
+    <meta name="robots" content="max-image-preview:large">
+    <title>상식 퀴즈 100문제 - 일반상식 테스트 | 무료 온라인 퀴즈</title>
+    <meta name="description" content="100개의 성인 난이도 상식 퀴즈로 지식을 테스트하세요! 일반상식, 경제, IT, 과학 등 8개 카테고리. 무료 온라인 퀴즈 게임으로 즐기는 학습.">
+    <meta name="keywords" content="상식 퀴즈, 지식 퀴즈, 일반상식 테스트, 무료 퀴즈, 온라인 퀴즈, 성인 퀴즈, 퀴즈 게임, 상식 테스트">
+    <link rel="canonical" href="https://swp1234.github.io/quiz-app/">
     <meta name="theme-color" content="#667eea">
-    <title>지식 퀴즈 앱</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" href="icon-192.svg" type="image/svg+xml">
@@ -13,6 +16,29 @@
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8GSWM40TV"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-J8GSWM40TV');</script>
+    <!-- Open Graph & Social Media Tags -->
+    <meta property="og:title" content="상식 퀴즈 100문제 - 당신의 지식은 몇 점?">
+    <meta property="og:description" content="성인 난이도 상식 퀴즈 100문제! 일반상식부터 IT, 경제까지. 무료로 테스트해보세요 🧠">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://swp1234.github.io/quiz-app/">
+    <meta property="og:image" content="https://swp1234.github.io/quiz-app/icon-512.svg">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="상식 퀴즈 100문제 🧠">
+    <meta name="twitter:description" content="당신의 지식은 몇 점? 무료 퀴즈 테스트!">
+    <meta name="twitter:image" content="https://swp1234.github.io/quiz-app/icon-512.svg">
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Quiz",
+      "name": "상식 퀴즈 100문제",
+      "description": "일반상식부터 IT, 경제까지 다양한 카테고리의 100문제 퀴즈",
+      "educationalLevel": "성인",
+      "inLanguage": "ko",
+      "publisher": { "@type": "Organization", "name": "FireTools" }
+    }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -121,6 +147,41 @@
                     </div>
                     <button class="btn btn-primary" onclick="closeExplanation()"><span data-i18n="explanation.nextButton">다음 문제</span></button>
                 </div>
+
+            <!-- 크로스 프로모션 추천 섹션 -->
+            <div class="recommendations-section">
+                <div class="rec-title">이것도 해보세요</div>
+                <div class="rec-grid">
+                    <a href="https://swp1234.github.io/dev-quiz/" class="rec-card" target="_blank">
+                        <span class="rec-icon">💻</span>
+                        <span class="rec-info">
+                            <span class="rec-name">개발자 퀴즈</span>
+                            <span class="rec-desc">코딩 실력 테스트!</span>
+                        </span>
+                    </a>
+                    <a href="https://swp1234.github.io/sky-runner/" class="rec-card" target="_blank">
+                        <span class="rec-icon">🚀</span>
+                        <span class="rec-info">
+                            <span class="rec-name">Sky Runner</span>
+                            <span class="rec-desc">우주 비행 아케이드 게임!</span>
+                        </span>
+                    </a>
+                    <a href="https://swp1234.github.io/emoji-merge/" class="rec-card" target="_blank">
+                        <span class="rec-icon">🧬</span>
+                        <span class="rec-info">
+                            <span class="rec-name">이모지 머지</span>
+                            <span class="rec-desc">이모지 합쳐 진화시키기!</span>
+                        </span>
+                    </a>
+                    <a href="https://swp1234.github.io/emotion-temp/" class="rec-card" target="_blank">
+                        <span class="rec-icon">🌡️</span>
+                        <span class="rec-info">
+                            <span class="rec-name">감정 온도계 테스트</span>
+                            <span class="rec-desc">나의 감정 온도는 몇 도?</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
             </div>
         </main>
     </div>
