@@ -10,7 +10,9 @@
   },
   "quiz": {
     "loading": "Chargement du quiz...",
-    "questionBadge": "Q"
+    "loadError": "Impossible de charger les données du quiz. Veuillez rafraîchir la page.",
+    "questionBadge": "Q",
+    "timeout": "Le temps est écoulé"
   },
   "results": {
     "title": "Quiz Terminé!",
@@ -45,9 +47,48 @@
     "correctAnswer": "✅ Bonne réponse"
   },
   "ads": {
-    "banner": "Publicité"
+    "banner": "Publicité",
+    "interstitial": "Publicité",
+    "close": "Fermer"
   },
   "language": {
     "select": "Sélectionner la Langue"
+  },
+  "premium": {
+    "analysisButton": "🧠 Voir l'Analyse Approfondie par IA",
+    "other": "Autre",
+    "totalGames": "Jeux Totaux",
+    "highScore": "Meilleur Score",
+    "correctRate": "Taux de Précision Cette Fois",
+    "categoryAnalysis": "📊 Analyse Détaillée par Catégorie",
+    "studyRecommendation": "🎯 Recommandation d'Étude",
+    "wrongPatternAnalysis": "🔍 Analyse du Motif de Mauvaises Réponses",
+    "mostWrongArea": "Catégorie la Plus Souvent Erronée",
+    "questionUnit": "question",
+    "weakAreaTip": "a besoin d'une étude approfondie.",
+    "strongAreaTip": "montre une excellence remarquable!",
+    "levels": {
+      "master": "🏆 Maître",
+      "masterDesc": "Niveau de connaissances dans les 5% supérieurs. Vous avez démontré une compréhension exceptionnelle dans presque tous les domaines.",
+      "expert": "🥇 Expert",
+      "expertDesc": "Niveau de connaissances dans les 20% supérieurs. Avec un peu plus d'études dans quelques domaines, vous pouvez atteindre le niveau de maître.",
+      "intermediate": "🥈 Intermédiaire",
+      "intermediateDesc": "Niveau de connaissances supérieur à la moyenne. Une étude concentrée sur les domaines faibles mènera à une croissance rapide.",
+      "beginner": "🥉 Débutant",
+      "beginnerDesc": "Il vous reste beaucoup à apprendre, mais avec des quiz répétés, vos compétences s'amélioreront rapidement!"
+    }
+  },
+  "recommendations": {
+    "title": "Essaie Aussi Ceci",
+    "devQuiz": "Quiz Développeur",
+    "devQuizDesc": "Teste tes compétences en codage!",
+    "skyRunnerDesc": "Jeu d'arcade de vol spatial!",
+    "emojiMerge": "Fusion d'Emoji",
+    "emojiMergeDesc": "Fusionne et fais évoluer les emojis!",
+    "emotionTemp": "Test de Température Émotionnelle",
+    "emotionTempDesc": "Quelle est ta température émotionnelle?"
+  },
+  "game": {
+    "back": "Accueil de DopaBrain"
   }
 }

@@ -10,7 +10,9 @@
   },
   "quiz": {
     "loading": "クイズを読み込み中...",
-    "questionBadge": "Q"
+    "loadError": "クイズデータを読み込めませんでした。ページを再読込してください。",
+    "questionBadge": "Q",
+    "timeout": "時間切れです"
   },
   "results": {
     "title": "クイズ完了！",
@@ -45,9 +47,48 @@
     "correctAnswer": "✅ 正解"
   },
   "ads": {
-    "banner": "広告"
+    "banner": "広告",
+    "interstitial": "広告",
+    "close": "閉じる"
   },
   "language": {
     "select": "言語を選択"
+  },
+  "premium": {
+    "analysisButton": "🧠 AI深層分析を見る",
+    "other": "その他",
+    "totalGames": "総ゲーム数",
+    "highScore": "最高スコア",
+    "correctRate": "今回の正解率",
+    "categoryAnalysis": "📊 カテゴリー詳細分析",
+    "studyRecommendation": "🎯 学習推奨",
+    "wrongPatternAnalysis": "🔍 誤答パターン分析",
+    "mostWrongArea": "最も間違いやすいカテゴリー",
+    "questionUnit": "問",
+    "weakAreaTip": "の学習が必要です。",
+    "strongAreaTip": "で優れた実力を示されました!",
+    "levels": {
+      "master": "🏆 マスター",
+      "masterDesc": "トップ5%の知識レベルです。ほぼすべての分野で優れた理解力を示されました。",
+      "expert": "🥇 エキスパート",
+      "expertDesc": "トップ20%の知識レベルです。いくつかの分野を補強するとマスターレベルに達できます。",
+      "intermediate": "🥈 中級者",
+      "intermediateDesc": "平均以上の知識レベルです。弱い分野を集中的に学習すると急速に成長できます。",
+      "beginner": "🥉 初級者",
+      "beginnerDesc": "まだ学ぶことがたくさんありますが、繰り返しクイズをすれば実力が急速に向上します!"
+    }
+  },
+  "recommendations": {
+    "title": "これも試してみてください",
+    "devQuiz": "開発者クイズ",
+    "devQuizDesc": "コーディング実力テスト!",
+    "skyRunnerDesc": "宇宙飛行アーケードゲーム!",
+    "emojiMerge": "絵文字マージ",
+    "emojiMergeDesc": "絵文字を合わせて進化させよう!",
+    "emotionTemp": "感情温度テスト",
+    "emotionTempDesc": "あなたの感情温度は何度?"
+  },
+  "game": {
+    "back": "DopaBrainホーム"
   }
 }

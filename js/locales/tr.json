@@ -10,7 +10,9 @@
   },
   "quiz": {
     "loading": "Sınav yükleniyor...",
-    "questionBadge": "S"
+    "loadError": "Sınav verileri yüklenemedi. Lütfen sayfayı yenileyin.",
+    "questionBadge": "S",
+    "timeout": "Süre bitti"
   },
   "results": {
     "title": "Sınav Tamamlandı!",
@@ -45,9 +47,48 @@
     "correctAnswer": "✅ Doğru cevap"
   },
   "ads": {
-    "banner": "Reklam"
+    "banner": "Reklam",
+    "interstitial": "Reklam",
+    "close": "Kapat"
   },
   "language": {
     "select": "Dil Seç"
+  },
+  "premium": {
+    "analysisButton": "🧠 Derin Yapay Zeka Analizini Gör",
+    "other": "Diğer",
+    "totalGames": "Toplam Oyun",
+    "highScore": "En Yüksek Skor",
+    "correctRate": "Bu Sefer Doğru Cevap Oranı",
+    "categoryAnalysis": "📊 Kategori Detaylı Analizi",
+    "studyRecommendation": "🎯 Çalışma Önerisi",
+    "wrongPatternAnalysis": "🔍 Yanlış Cevap Deseni Analizi",
+    "mostWrongArea": "En Sık Yanlış Yapılan Kategori",
+    "questionUnit": "soru",
+    "weakAreaTip": "öğrenilmesi gerekiyor.",
+    "strongAreaTip": "mükemmel bir başarı göstermiştir!",
+    "levels": {
+      "master": "🏆 Usta",
+      "masterDesc": "En üst %5 bilgi seviyesi. Neredeyse tüm alanlarda olağanüstü anlayış gösterdiniz.",
+      "expert": "🥇 Uzman",
+      "expertDesc": "En üst %20 bilgi seviyesi. Birkaç alanda daha çalışırsanız Usta seviyesine ulaşabilirsiniz.",
+      "intermediate": "🥈 Orta Seviye",
+      "intermediateDesc": "Ortalamanın üstünde bilgi seviyesi. Zayıf alanlara yoğunlaşırsanız hızlı ilerleme sağlayabilirsiniz.",
+      "beginner": "🥉 Başlangıç",
+      "beginnerDesc": "Öğrenecek çok şeyin var ama tekrarlanan sınavlarla becerileriniz hızla gelişecektir!"
+    }
+  },
+  "recommendations": {
+    "title": "Bunu da Deneyin",
+    "devQuiz": "Geliştirici Sınavı",
+    "devQuizDesc": "Kodlama becerilerinizi test edin!",
+    "skyRunnerDesc": "Uzay uçuşu arcade oyunu!",
+    "emojiMerge": "Emoji Birleştir",
+    "emojiMergeDesc": "Emojileri birleştir ve geliştiriniz!",
+    "emotionTemp": "Duygusal Sıcaklık Testi",
+    "emotionTempDesc": "Senin duygusal sıcaklığın ne kadar?"
+  },
+  "game": {
+    "back": "DopaBrain Anasayfa"
   }
 }

@@ -10,7 +10,9 @@
   },
   "quiz": {
     "loading": "Cargando cuestionario...",
-    "questionBadge": "P"
+    "loadError": "No se pudieron cargar los datos del cuestionario. Por favor, actualiza la página.",
+    "questionBadge": "P",
+    "timeout": "Se acabó el tiempo"
   },
   "results": {
     "title": "¡Cuestionario Completado!",
@@ -45,9 +47,48 @@
     "correctAnswer": "✅ Respuesta correcta"
   },
   "ads": {
-    "banner": "Publicidad"
+    "banner": "Publicidad",
+    "interstitial": "Publicidad",
+    "close": "Cerrar"
   },
   "language": {
     "select": "Seleccionar Idioma"
+  },
+  "premium": {
+    "analysisButton": "🧠 Ver Análisis Profundo de IA",
+    "other": "Otro",
+    "totalGames": "Juegos Totales",
+    "highScore": "Puntuación Máxima",
+    "correctRate": "Tasa de Aciertos Esta Vez",
+    "categoryAnalysis": "📊 Análisis Detallado de Categoría",
+    "studyRecommendation": "🎯 Recomendación de Estudio",
+    "wrongPatternAnalysis": "🔍 Análisis de Patrón de Errores",
+    "mostWrongArea": "Categoría Más Frecuentemente Incorrecta",
+    "questionUnit": "pregunta",
+    "weakAreaTip": "necesita estudio adicional.",
+    "strongAreaTip": "¡muestra habilidad excepcional!",
+    "levels": {
+      "master": "🏆 Maestro",
+      "masterDesc": "Nivel de conocimiento en el 5% superior. Has demostrado una comprensión sobresaliente en casi todas las áreas.",
+      "expert": "🥇 Experto",
+      "expertDesc": "Nivel de conocimiento en el 20% superior. Con un poco más de estudio en algunas áreas, puedes alcanzar el nivel de maestro.",
+      "intermediate": "🥈 Intermedio",
+      "intermediateDesc": "Nivel de conocimiento superior al promedio. El estudio enfocado en áreas débiles llevará a un crecimiento rápido.",
+      "beginner": "🥉 Principiante",
+      "beginnerDesc": "Aún tienes mucho que aprender, pero con cuestionarios repetidos, tus habilidades mejorarán rápidamente!"
+    }
+  },
+  "recommendations": {
+    "title": "Intenta También Esto",
+    "devQuiz": "Cuestionario para Desarrolladores",
+    "devQuizDesc": "¡Prueba tus habilidades de codificación!",
+    "skyRunnerDesc": "¡Juego de arcade de vuelo espacial!",
+    "emojiMerge": "Fusión de Emoji",
+    "emojiMergeDesc": "¡Fusiona y evoluciona emojis!",
+    "emotionTemp": "Prueba de Temperatura Emocional",
+    "emotionTempDesc": "¿Cuál es tu temperatura emocional?"
+  },
+  "game": {
+    "back": "Inicio de DopaBrain"
   }
 }

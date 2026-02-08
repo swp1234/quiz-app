@@ -1,7 +1,7 @@
 {
   "app": {
     "title": "지식 퀴즈 앱",
-    "description": "재미있는 지식 퀴즈로 상식을 쌓아보세요! 100개의 다양한 문제에 도전하세요."
+    "description": "재미있는 지식 퀴즈로 상식을 쌓아보세요! 200개 이상의 다양한 문제에 도전하세요."
   },
   "header": {
     "title": "🎯 지식 퀴즈",
@@ -10,7 +10,9 @@
   },
   "quiz": {
     "loading": "퀴즈를 불러오는 중...",
-    "questionBadge": "Q"
+    "loadError": "퀴즈 데이터를 불러올 수 없습니다. 페이지를 새로고침해주세요.",
+    "questionBadge": "Q",
+    "timeout": "시간 초과"
   },
   "results": {
     "title": "퀴즈 완료!",
@@ -45,9 +47,48 @@
     "correctAnswer": "✅ 정답"
   },
   "ads": {
-    "banner": "광고 영역"
+    "banner": "광고 영역",
+    "interstitial": "광고",
+    "close": "닫기"
   },
   "language": {
     "select": "언어 선택"
+  },
+  "premium": {
+    "analysisButton": "🧠 AI 심층 분석 보기",
+    "other": "기타",
+    "totalGames": "총 게임 수",
+    "highScore": "최고 점수",
+    "correctRate": "이번 정답률",
+    "categoryAnalysis": "📊 분야별 상세 분석",
+    "studyRecommendation": "🎯 학습 추천",
+    "wrongPatternAnalysis": "🔍 오답 패턴 분석",
+    "mostWrongArea": "가장 많이 틀린 분야",
+    "questionUnit": "문제",
+    "weakAreaTip": "분야의 학습이 필요합니다.",
+    "strongAreaTip": "분야에서 뛰어난 실력을 보여주셨습니다!",
+    "levels": {
+      "master": "🏆 마스터",
+      "masterDesc": "상위 5% 수준의 놀라운 지식 수준입니다. 거의 모든 분야에서 탁월한 이해도를 보여주셨습니다.",
+      "expert": "🥇 전문가",
+      "expertDesc": "상위 20% 수준의 우수한 지식입니다. 몇 가지 분야만 보완하면 마스터 레벨에 도달할 수 있습니다.",
+      "intermediate": "🥈 중급자",
+      "intermediateDesc": "평균 이상의 상식 수준입니다. 약한 분야를 집중 학습하면 빠르게 성장할 수 있습니다.",
+      "beginner": "🥉 초급자",
+      "beginnerDesc": "아직 배울 것이 많지만, 퀴즈를 반복하면 빠르게 실력이 향상됩니다!"
+    }
+  },
+  "recommendations": {
+    "title": "이것도 해보세요",
+    "devQuiz": "개발자 퀴즈",
+    "devQuizDesc": "코딩 실력 테스트!",
+    "skyRunnerDesc": "우주 비행 아케이드 게임!",
+    "emojiMerge": "이모지 머지",
+    "emojiMergeDesc": "이모지 합쳐 진화시키기!",
+    "emotionTemp": "감정 온도계 테스트",
+    "emotionTempDesc": "나의 감정 온도는 몇 도?"
+  },
+  "game": {
+    "back": "DopaBrain 홈"
   }
 }

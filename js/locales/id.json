@@ -10,7 +10,9 @@
   },
   "quiz": {
     "loading": "Memuat kuis...",
-    "questionBadge": "T"
+    "loadError": "Gagal memuat data kuis. Silakan segarkan halaman.",
+    "questionBadge": "T",
+    "timeout": "Waktu habis"
   },
   "results": {
     "title": "Kuis Selesai!",
@@ -45,9 +47,48 @@
     "correctAnswer": "✅ Jawaban yang benar"
   },
   "ads": {
-    "banner": "Iklan"
+    "banner": "Iklan",
+    "interstitial": "Iklan",
+    "close": "Tutup"
   },
   "language": {
     "select": "Pilih Bahasa"
+  },
+  "premium": {
+    "analysisButton": "🧠 Lihat Analisis AI Mendalam",
+    "other": "Lainnya",
+    "totalGames": "Total Permainan",
+    "highScore": "Skor Tertinggi",
+    "correctRate": "Tingkat Akurasi Kali Ini",
+    "categoryAnalysis": "📊 Analisis Kategori Terperinci",
+    "studyRecommendation": "🎯 Rekomendasi Belajar",
+    "wrongPatternAnalysis": "🔍 Analisis Pola Jawaban Salah",
+    "mostWrongArea": "Kategori Paling Sering Salah",
+    "questionUnit": "soal",
+    "weakAreaTip": "memerlukan pembelajaran lebih lanjut.",
+    "strongAreaTip": "menunjukkan kemampuan luar biasa!",
+    "levels": {
+      "master": "🏆 Ahli",
+      "masterDesc": "Tingkat pengetahuan 5% teratas. Anda telah menunjukkan pemahaman yang luar biasa di hampir semua bidang.",
+      "expert": "🥇 Spesialis",
+      "expertDesc": "Tingkat pengetahuan 20% teratas. Dengan sedikit pembelajaran lebih lanjut di beberapa bidang, Anda bisa mencapai tingkat ahli.",
+      "intermediate": "🥈 Menengah",
+      "intermediateDesc": "Tingkat pengetahuan di atas rata-rata. Pembelajaran terfokus pada area lemah akan menyebabkan pertumbuhan cepat.",
+      "beginner": "🥉 Pemula",
+      "beginnerDesc": "Masih banyak yang perlu dipelajari, tetapi dengan kuis berulang, keterampilan Anda akan cepat meningkat!"
+    }
+  },
+  "recommendations": {
+    "title": "Coba Ini Juga",
+    "devQuiz": "Kuis Pengembang",
+    "devQuizDesc": "Uji keterampilan coding Anda!",
+    "skyRunnerDesc": "Permainan arcade penerbangan luar angkasa!",
+    "emojiMerge": "Gabungkan Emoji",
+    "emojiMergeDesc": "Gabungkan dan kembangkan emoji!",
+    "emotionTemp": "Tes Suhu Emosi",
+    "emotionTempDesc": "Berapa suhu emosi Anda?"
+  },
+  "game": {
+    "back": "Beranda DopaBrain"
   }
 }

@@ -10,7 +10,9 @@
   },
   "quiz": {
     "loading": "Quiz wird geladen...",
-    "questionBadge": "F"
+    "loadError": "Quiz-Daten konnten nicht geladen werden. Bitte aktualisieren Sie die Seite.",
+    "questionBadge": "F",
+    "timeout": "Zeit ist abgelaufen"
   },
   "results": {
     "title": "Quiz fertig!",
@@ -45,9 +47,48 @@
     "correctAnswer": "✅ Korrekte Antwort"
   },
   "ads": {
-    "banner": "Werbung"
+    "banner": "Werbung",
+    "interstitial": "Anzeige",
+    "close": "Schließen"
   },
   "language": {
     "select": "Sprache auswählen"
+  },
+  "premium": {
+    "analysisButton": "🧠 Tiefgehende KI-Analyse ansehen",
+    "other": "Sonstiges",
+    "totalGames": "Spiele insgesamt",
+    "highScore": "Höchste Punktzahl",
+    "correctRate": "Genauigkeitsquote dieses Mal",
+    "categoryAnalysis": "📊 Detaillierte Kategorieanalyse",
+    "studyRecommendation": "🎯 Lernempfehlung",
+    "wrongPatternAnalysis": "🔍 Analyse von Fehlermustern",
+    "mostWrongArea": "Häufigste Fehlerkategorie",
+    "questionUnit": "Frage",
+    "weakAreaTip": "bedarf weiterer Lernarbeit.",
+    "strongAreaTip": "zeigt hervorragende Leistung!",
+    "levels": {
+      "master": "🏆 Meister",
+      "masterDesc": "Wissensstand in den oberen 5%. Sie haben in fast allen Bereichen außergewöhnliches Verständnis demonstriert.",
+      "expert": "🥇 Experte",
+      "expertDesc": "Wissensstand in den oberen 20%. Mit etwas mehr Lernen in einigen Bereichen können Sie die Meister-Stufe erreichen.",
+      "intermediate": "🥈 Mittelstufe",
+      "intermediateDesc": "Überdurchschnittliches Wissensniveau. Konzentriertes Lernen in schwachen Bereichen führt zu schnellem Fortschritt.",
+      "beginner": "🥉 Anfänger",
+      "beginnerDesc": "Es gibt noch viel zu lernen, aber mit wiederholten Quizzen werden sich Ihre Fähigkeiten schnell verbessern!"
+    }
+  },
+  "recommendations": {
+    "title": "Probieren Sie auch dies aus",
+    "devQuiz": "Entwickler-Quiz",
+    "devQuizDesc": "Testen Sie Ihre Codierungsfähigkeiten!",
+    "skyRunnerDesc": "Weltraum-Flug-Arcade-Spiel!",
+    "emojiMerge": "Emoji-Verschmelzung",
+    "emojiMergeDesc": "Emojis zusammenführen und weiterentwickeln!",
+    "emotionTemp": "Emotionale Temperatur Test",
+    "emotionTempDesc": "Wie ist Ihre emotionale Temperatur?"
+  },
+  "game": {
+    "back": "DopaBrain Startseite"
   }
 }

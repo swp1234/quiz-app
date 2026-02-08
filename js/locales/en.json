@@ -10,7 +10,9 @@
   },
   "quiz": {
     "loading": "Loading quiz...",
-    "questionBadge": "Q"
+    "loadError": "Failed to load quiz data. Please refresh the page.",
+    "questionBadge": "Q",
+    "timeout": "Time's up"
   },
   "results": {
     "title": "Quiz Complete!",
@@ -45,9 +47,48 @@
     "correctAnswer": "✅ Correct answer"
   },
   "ads": {
-    "banner": "Advertisement"
+    "banner": "Advertisement",
+    "interstitial": "Advertisement",
+    "close": "Close"
   },
   "language": {
     "select": "Select Language"
+  },
+  "premium": {
+    "analysisButton": "🧠 View In-depth AI Analysis",
+    "other": "Other",
+    "totalGames": "Total Games",
+    "highScore": "High Score",
+    "correctRate": "Correct Rate This Time",
+    "categoryAnalysis": "📊 Detailed Category Analysis",
+    "studyRecommendation": "🎯 Study Recommendation",
+    "wrongPatternAnalysis": "🔍 Wrong Answer Pattern Analysis",
+    "mostWrongArea": "Most Frequently Wrong Category",
+    "questionUnit": "question",
+    "weakAreaTip": "needs further study.",
+    "strongAreaTip": "shows excellent proficiency!",
+    "levels": {
+      "master": "🏆 Master",
+      "masterDesc": "Top 5% knowledge level. You've demonstrated outstanding understanding across almost all areas.",
+      "expert": "🥇 Expert",
+      "expertDesc": "Top 20% knowledge level. With a bit more study in a few areas, you can reach Master level.",
+      "intermediate": "🥈 Intermediate",
+      "intermediateDesc": "Above-average knowledge level. Focused study in weak areas will lead to rapid growth.",
+      "beginner": "🥉 Beginner",
+      "beginnerDesc": "You have much to learn, but with repeated quizzes, your skills will improve quickly!"
+    }
+  },
+  "recommendations": {
+    "title": "Try These Too",
+    "devQuiz": "Developer Quiz",
+    "devQuizDesc": "Test your coding skills!",
+    "skyRunnerDesc": "Space flight arcade game!",
+    "emojiMerge": "Emoji Merge",
+    "emojiMergeDesc": "Merge and evolve emojis!",
+    "emotionTemp": "Emotion Temperature Test",
+    "emotionTempDesc": "What's your emotional temperature?"
+  },
+  "game": {
+    "back": "DopaBrain Home"
   }
 }

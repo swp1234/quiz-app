@@ -11,6 +11,7 @@ let totalGamesPlayed = 0;
 let questionTimer = null;
 let timeLeft = 0;
 const TIME_PER_QUESTION = 15; // seconds
+const QUESTIONS_PER_GAME = 10;
 
 // DOM 요소
 const questionText = document.getElementById('question-text');
@@ -32,13 +33,15 @@ const langMenu = document.getElementById('lang-menu');
 const langOptions = document.querySelectorAll('.lang-option');
 
 // 언어 선택 이벤트
-langToggle.addEventListener('click', () => {
-    langMenu.classList.toggle('hidden');
-});
+if (langToggle) {
+    langToggle.addEventListener('click', () => {
+        langMenu.classList.toggle('hidden');
+    });
+}
 
 // 메뉴 외부 클릭 시 닫기
 document.addEventListener('click', (e) => {
-    if (!e.target.closest('.language-selector')) {
+    if (!e.target.closest('.language-selector') && langMenu) {
         langMenu.classList.add('hidden');
     }
 });
@@ -55,7 +58,7 @@ langOptions.forEach(option => {
         langMenu.classList.add('hidden');
 
         // 현재 화면 상태 유지하며 재렌더링
-        if (!resultScreen.classList.contains('hidden')) {
+        if (resultScreen && !resultScreen.classList.contains('hidden')) {
             showCategoryStats();
             showWrongAnswers();
         }
@@ -67,7 +70,10 @@ function loadSavedData() {
     try {
         highScore = parseInt(localStorage.getItem('quiz_highScore')) || 0;
         totalGamesPlayed = parseInt(localStorage.getItem('quiz_totalGames')) || 0;
-    } catch (e) {}
+    } catch (e) {
+        highScore = 0;
+        totalGamesPlayed = 0;
+    }
 }
 
 // localStorage 저장
@@ -87,36 +93,33 @@ async function init() {
     // quizData 로드 확인
     if (typeof quizData === 'undefined' || !quizData || quizData.length === 0) {
         console.error('quizData가 로드되지 않았습니다.');
-        questionText.textContent = '퀴즈 데이터를 불러오는 중...';
-        // 잠시 후 재시도
+        if (questionText) questionText.textContent = i18n ? i18n.t('quiz.loading') : 'Loading...';
         setTimeout(() => {
             if (typeof quizData !== 'undefined' && quizData && quizData.length > 0) {
                 init();
             } else {
-                questionText.textContent = '퀴즈 데이터를 불러올 수 없습니다. 페이지를 새로고침해주세요.';
+                if (questionText) questionText.textContent = i18n ? i18n.t('quiz.loadError') : 'Failed to load quiz data.';
             }
-        }, 100);
+        }, 500);
         return;
     }
 
     // i18n 초기화 확인
-    if (typeof i18n === 'undefined') {
-        console.error('i18n이 로드되지 않았습니다.');
-        // i18n 없이도 기본 기능은 작동하도록 계속 진행
-    } else {
+    if (typeof i18n !== 'undefined') {
         await i18n.loadTranslations(i18n.getCurrentLanguage());
         i18n.updateUI();
-    }
 
-    // 현재 언어 활성화 표시
-    const currentLang = i18n.getCurrentLanguage();
-    document.querySelector(`[data-lang="${currentLang}"]`)?.classList.add('active');
+        // 현재 언어 활성화 표시
+        const currentLang = i18n.getCurrentLanguage();
+        const activeLangBtn = document.querySelector(`[data-lang="${currentLang}"]`);
+        if (activeLangBtn) activeLangBtn.classList.add('active');
+    }
 
     // localStorage에서 데이터 로드
     loadSavedData();
 
-    // 퀴즈 데이터 셔플 및 10개 선택
-    selectedQuestions = shuffleArray([...quizData]).slice(0, 10);
+    // 퀴즈 데이터 셔플 및 선택
+    selectedQuestions = shuffleArray([...quizData]).slice(0, QUESTIONS_PER_GAME);
     currentQuestion = 0;
     score = 0;
     wrongAnswers = [];
@@ -126,7 +129,7 @@ async function init() {
     loadQuestion();
 }
 
-// 배열 셔플 함수
+// 배열 셔플 함수 (Fisher-Yates)
 function shuffleArray(array) {
     const newArray = [...array];
     for (let i = newArray.length - 1; i > 0; i--) {
@@ -140,7 +143,7 @@ function shuffleArray(array) {
 function loadQuestion() {
     if (!selectedQuestions || selectedQuestions.length === 0) {
         console.error('selectedQuestions가 비어있습니다.');
-        questionText.textContent = '퀴즈 데이터를 불러오는 중...';
+        if (questionText) questionText.textContent = i18n ? i18n.t('quiz.loading') : 'Loading...';
         return;
     }
 
@@ -150,16 +153,17 @@ function loadQuestion() {
     }
 
     const question = selectedQuestions[currentQuestion];
-    
+
     if (!question || !question.question) {
         console.error('질문 데이터가 없습니다.');
-        questionText.textContent = '질문을 불러올 수 없습니다.';
+        currentQuestion++;
+        loadQuestion();
         return;
     }
-    
+
     // 문제 배지 업데이트
     questionBadge.textContent = `Q${currentQuestion + 1}`;
-    
+
     // 문제 텍스트 업데이트
     questionText.textContent = question.question;
     answersContainer.innerHTML = '';
@@ -206,7 +210,12 @@ function updateTimerDisplay() {
         timerEl.id = 'question-timer';
         timerEl.style.cssText = 'text-align:center;margin-bottom:12px;';
         const quizHeader = document.querySelector('.quiz-header');
-        if (quizHeader) quizHeader.after(timerEl);
+        if (quizHeader) {
+            quizHeader.after(timerEl);
+        } else {
+            const appHeader = document.querySelector('.app-header');
+            if (appHeader) appHeader.after(timerEl);
+        }
     }
     const pct = (timeLeft / TIME_PER_QUESTION) * 100;
     const color = timeLeft <= 5 ? '#e74c3c' : timeLeft <= 10 ? '#f39c12' : '#27ae60';
@@ -221,24 +230,26 @@ function updateTimerDisplay() {
 }
 
 function handleTimeout() {
-    // Time's up - treat as wrong answer
     const question = selectedQuestions[currentQuestion];
     const buttons = document.querySelectorAll('.answer-btn');
     buttons.forEach(btn => btn.disabled = true);
 
     // Mark correct answer
-    buttons[question.correct].classList.add('correct');
+    if (buttons[question.correct]) {
+        buttons[question.correct].classList.add('correct');
+    }
 
     // Track wrong answer
-    const category = question.category || '기타';
+    const category = question.category || i18n.t('premium.other');
     if (!categoryStats[category]) {
         categoryStats[category] = { correct: 0, total: 0 };
     }
     categoryStats[category].total++;
     wrongAnswers.push({
         question: question.question,
-        yourAnswer: '시간 초과',
+        yourAnswer: i18n.t('quiz.timeout'),
         correctAnswer: question.answers[question.correct],
+        explanation: question.explanation || i18n.t('explanation.noExplanation'),
         category: category
     });
 
@@ -251,13 +262,14 @@ function handleTimeout() {
 
 // 프로그레스 바 업데이트
 function updateProgress() {
-    const progress = ((currentQuestion + 1) / 10) * 100;
+    const total = selectedQuestions.length || QUESTIONS_PER_GAME;
+    const progress = ((currentQuestion + 1) / total) * 100;
     progressFill.style.width = `${progress}%`;
 }
 
 // 답변 선택
 function selectAnswer(selectedIndex) {
-    clearInterval(questionTimer); // Stop timer on answer
+    clearInterval(questionTimer);
     const question = selectedQuestions[currentQuestion];
     const buttons = document.querySelectorAll('.answer-btn');
     const isCorrect = selectedIndex === question.correct;
@@ -266,7 +278,7 @@ function selectAnswer(selectedIndex) {
     buttons.forEach(btn => btn.disabled = true);
 
     // 카테고리 통계 업데이트
-    const category = question.category || '기타';
+    const category = question.category || i18n.t('premium.other');
     if (!categoryStats[category]) {
         categoryStats[category] = { correct: 0, total: 0 };
     }
@@ -289,7 +301,7 @@ function selectAnswer(selectedIndex) {
             question: question.question,
             yourAnswer: question.answers[selectedIndex],
             correctAnswer: question.answers[question.correct],
-            explanation: question.explanation || '해설이 없습니다.',
+            explanation: question.explanation || i18n.t('explanation.noExplanation'),
             category: category
         });
     }
@@ -340,7 +352,7 @@ function updateScore() {
 
 // 결과 표시
 function showResults() {
-    clearInterval(questionTimer); // Clear timer
+    clearInterval(questionTimer);
     const timerEl = document.getElementById('question-timer');
     if (timerEl) timerEl.remove();
     quizArea.classList.add('hidden');
@@ -353,7 +365,7 @@ function showResults() {
     // 점수에 따른 등급 및 메시지
     let grade, gradeText, icon, messagesKey;
 
-    if (score === 10) {
+    if (score === QUESTIONS_PER_GAME) {
         grade = 'grade-excellent';
         gradeText = i18n.t('results.grades.excellent');
         icon = '🎉';
@@ -378,7 +390,11 @@ function showResults() {
     // UI 업데이트
     resultIcon.textContent = icon;
     const messages = i18n.t(`results.messages.${messagesKey}`);
-    resultMessage.textContent = messages[Math.floor(Math.random() * messages.length)];
+    if (Array.isArray(messages) && messages.length > 0) {
+        resultMessage.textContent = messages[Math.floor(Math.random() * messages.length)];
+    } else {
+        resultMessage.textContent = typeof messages === 'string' ? messages : '';
+    }
     scoreGrade.className = `score-grade ${grade}`;
     scoreGrade.textContent = gradeText;
 
@@ -466,22 +482,23 @@ function showInterstitialAd() {
         closeBtn.disabled = true;
 
         let seconds = 5;
+        const closeText = i18n.t('ads.close') || 'Close';
         countdown.textContent = seconds;
-        closeBtn.textContent = `닫기 (${seconds})`;
+        closeBtn.textContent = `${closeText} (${seconds})`;
 
         const timer = setInterval(() => {
             seconds--;
             countdown.textContent = seconds;
-            closeBtn.textContent = `닫기 (${seconds})`;
+            closeBtn.textContent = `${closeText} (${seconds})`;
 
             if (seconds <= 0) {
                 clearInterval(timer);
                 closeBtn.disabled = false;
-                closeBtn.textContent = '닫기';
+                closeBtn.textContent = closeText;
 
                 closeBtn.onclick = () => {
                     adOverlay.classList.add('hidden');
-                    closeBtn.textContent = '닫기 (5)';
+                    closeBtn.textContent = `${closeText} (5)`;
                     resolve();
                 };
             }
@@ -495,7 +512,6 @@ function generatePremiumAnalysis() {
     const correctRate = Math.round((score / totalQuestions) * 100);
 
     // 카테고리별 분석
-    let categoryAnalysis = '';
     const sortedCategories = Object.entries(categoryStats).sort((a, b) => {
         const rateA = a[1].correct / a[1].total;
         const rateB = b[1].correct / b[1].total;
@@ -514,10 +530,10 @@ function generatePremiumAnalysis() {
     // 학습 추천
     let studyTips = [];
     if (weakCategories.length > 0) {
-        studyTips.push(`📚 <strong>${weakCategories.join(', ')}</strong> 분야의 학습이 필요합니다.`);
+        studyTips.push(`📚 <strong>${weakCategories.join(', ')}</strong> ${i18n.t('premium.weakAreaTip')}`);
     }
     if (strongCategories.length > 0) {
-        studyTips.push(`💪 <strong>${strongCategories.join(', ')}</strong> 분야에서 뛰어난 실력을 보여주셨습니다!`);
+        studyTips.push(`💪 <strong>${strongCategories.join(', ')}</strong> ${i18n.t('premium.strongAreaTip')}`);
     }
 
     // 오답 패턴 분석
@@ -528,23 +544,23 @@ function generatePremiumAnalysis() {
             wrongCategories[w.category] = (wrongCategories[w.category] || 0) + 1;
         });
         const mostWrong = Object.entries(wrongCategories).sort((a, b) => b[1] - a[1])[0];
-        patternAnalysis = `가장 많이 틀린 분야: <strong>${mostWrong[0]}</strong> (${mostWrong[1]}문제)`;
+        patternAnalysis = `${i18n.t('premium.mostWrongArea')}: <strong>${mostWrong[0]}</strong> (${mostWrong[1]}${i18n.t('premium.questionUnit')})`;
     }
 
     // 레벨 평가
     let level, levelDesc;
     if (correctRate >= 90) {
-        level = '🏆 마스터';
-        levelDesc = '상위 5% 수준의 놀라운 지식 수준입니다. 거의 모든 분야에서 탁월한 이해도를 보여주셨습니다.';
+        level = i18n.t('premium.levels.master');
+        levelDesc = i18n.t('premium.levels.masterDesc');
     } else if (correctRate >= 70) {
-        level = '🥇 전문가';
-        levelDesc = '상위 20% 수준의 우수한 지식입니다. 몇 가지 분야만 보완하면 마스터 레벨에 도달할 수 있습니다.';
+        level = i18n.t('premium.levels.expert');
+        levelDesc = i18n.t('premium.levels.expertDesc');
     } else if (correctRate >= 50) {
-        level = '🥈 중급자';
-        levelDesc = '평균 이상의 상식 수준입니다. 약한 분야를 집중 학습하면 빠르게 성장할 수 있습니다.';
+        level = i18n.t('premium.levels.intermediate');
+        levelDesc = i18n.t('premium.levels.intermediateDesc');
     } else {
-        level = '🥉 초급자';
-        levelDesc = '아직 배울 것이 많지만, 퀴즈를 반복하면 빠르게 실력이 향상됩니다!';
+        level = i18n.t('premium.levels.beginner');
+        levelDesc = i18n.t('premium.levels.beginnerDesc');
     }
 
     // 게임 통계
@@ -552,15 +568,15 @@ function generatePremiumAnalysis() {
         <div class="premium-stats-grid">
             <div class="premium-stat">
                 <div class="premium-stat-value">${totalGamesPlayed}</div>
-                <div class="premium-stat-label">총 게임 수</div>
+                <div class="premium-stat-label">${i18n.t('premium.totalGames')}</div>
             </div>
             <div class="premium-stat">
-                <div class="premium-stat-value">${highScore}/10</div>
-                <div class="premium-stat-label">최고 점수</div>
+                <div class="premium-stat-value">${highScore}/${QUESTIONS_PER_GAME}</div>
+                <div class="premium-stat-label">${i18n.t('premium.highScore')}</div>
             </div>
             <div class="premium-stat">
                 <div class="premium-stat-value">${correctRate}%</div>
-                <div class="premium-stat-label">이번 정답률</div>
+                <div class="premium-stat-label">${i18n.t('premium.correctRate')}</div>
             </div>
         </div>
     `;
@@ -575,7 +591,7 @@ function generatePremiumAnalysis() {
             ${statsHtml}
 
             <div class="premium-section-block">
-                <h4>📊 분야별 상세 분석</h4>
+                <h4>${i18n.t('premium.categoryAnalysis')}</h4>
                 ${sortedCategories.map(([cat, stats]) => {
                     const rate = Math.round((stats.correct / stats.total) * 100);
                     const barColor = rate >= 70 ? '#00d26a' : rate >= 40 ? '#ffd93d' : '#ff6b6b';
@@ -595,7 +611,7 @@ function generatePremiumAnalysis() {
 
             ${studyTips.length > 0 ? `
             <div class="premium-section-block">
-                <h4>🎯 학습 추천</h4>
+                <h4>${i18n.t('premium.studyRecommendation')}</h4>
                 <ul class="premium-tips">
                     ${studyTips.map(tip => `<li>${tip}</li>`).join('')}
                 </ul>
@@ -604,7 +620,7 @@ function generatePremiumAnalysis() {
 
             ${patternAnalysis ? `
             <div class="premium-section-block">
-                <h4>🔍 오답 패턴 분석</h4>
+                <h4>${i18n.t('premium.wrongPatternAnalysis')}</h4>
                 <p>${patternAnalysis}</p>
                 ${wrongAnswers.length > 0 ? `
                 <div class="premium-wrong-detail">
@@ -646,44 +662,47 @@ function registerServiceWorker() {
 
 // 페이지 로드 시 초기화
 window.addEventListener('DOMContentLoaded', async () => {
-    // DOM 요소 확인
-    const questionTextEl = document.getElementById('question-text');
-    
-    // i18n과 quizData 로드 확인
-    if (typeof i18n === 'undefined') {
-        console.error('i18n.js가 로드되지 않았습니다.');
-        if (questionTextEl) questionTextEl.textContent = '앱을 불러오는 중...';
-        setTimeout(() => {
-            if (typeof i18n !== 'undefined') {
-                window.dispatchEvent(new Event('DOMContentLoaded'));
-            } else {
-                if (questionTextEl) questionTextEl.textContent = '앱을 불러올 수 없습니다. 페이지를 새로고침해주세요.';
-            }
-        }, 100);
-        return;
+    // i18n과 quizData 로드 확인 (재시도 로직 개선)
+    let retryCount = 0;
+    const maxRetries = 10;
+
+    function checkDependencies() {
+        if (typeof i18n !== 'undefined' && typeof quizData !== 'undefined') {
+            return true;
+        }
+        return false;
     }
 
-    if (typeof quizData === 'undefined') {
-        console.error('quiz-data.js가 로드되지 않았습니다.');
-        if (questionTextEl) questionTextEl.textContent = '퀴즈 데이터를 불러오는 중...';
-        setTimeout(() => {
-            if (typeof quizData !== 'undefined') {
-                window.dispatchEvent(new Event('DOMContentLoaded'));
-            } else {
-                if (questionTextEl) questionTextEl.textContent = '퀴즈 데이터를 불러올 수 없습니다. 페이지를 새로고침해주세요.';
+    async function startApp() {
+        if (!checkDependencies()) {
+            retryCount++;
+            if (retryCount < maxRetries) {
+                setTimeout(startApp, 200);
+                return;
             }
-        }, 100);
-        return;
+            console.error('Dependencies failed to load after retries');
+            const questionTextEl = document.getElementById('question-text');
+            if (questionTextEl) questionTextEl.textContent = 'Failed to load. Please refresh.';
+            return;
+        }
+
+        await init();
+        registerServiceWorker();
+
+        // 프리미엄 분석 버튼
+        const premiumBtn = document.getElementById('premium-analysis-btn');
+        if (premiumBtn) {
+            premiumBtn.addEventListener('click', showPremiumAnalysis);
+        }
+
+        // 프리미엄 모달 닫기
+        const premiumClose = document.getElementById('premium-close');
+        if (premiumClose) {
+            premiumClose.addEventListener('click', () => {
+                document.getElementById('premium-modal').classList.add('hidden');
+            });
+        }
     }
 
-    await init();
-    registerServiceWorker();
-
-    // 프리미엄 분석 버튼
-    document.getElementById('premium-analysis-btn').addEventListener('click', showPremiumAnalysis);
-
-    // 프리미엄 모달 닫기
-    document.getElementById('premium-close').addEventListener('click', () => {
-        document.getElementById('premium-modal').classList.add('hidden');
-    });
+    await startApp();
 });
