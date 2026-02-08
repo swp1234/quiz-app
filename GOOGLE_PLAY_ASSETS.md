@@ -277,7 +277,7 @@ quiz, trivia, knowledge, education, learning, test, general knowledge, brain gam
    - 도메인 소유권 검증
 
 3. **manifest.xml 설정**
-   - TWA URL: https://swp1234.github.io/quiz-app/
+   - TWA URL: https://dopabrain.com/quiz-app/
    - Theme color: #667eea
    - App name (각 언어별 values 폴더)
 
