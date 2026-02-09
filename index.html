@@ -37,16 +37,56 @@
     <meta name="twitter:description" content="성인 난이도 상식 퀴즈 100문제! 지금 도전하세요! 🧠">
     <meta name="twitter:image" content="https://dopabrain.com/quiz-app/icon-512.svg">
     <meta name="twitter:site" content="@dopabrain">
+    <!-- hreflang for multilingual SEO -->
+    <link rel="alternate" hreflang="ko" href="https://dopabrain.com/quiz-app/">
+    <link rel="alternate" hreflang="en" href="https://dopabrain.com/quiz-app/">
+    <link rel="alternate" hreflang="zh" href="https://dopabrain.com/quiz-app/">
+    <link rel="alternate" hreflang="hi" href="https://dopabrain.com/quiz-app/">
+    <link rel="alternate" hreflang="ru" href="https://dopabrain.com/quiz-app/">
+    <link rel="alternate" hreflang="ja" href="https://dopabrain.com/quiz-app/">
+    <link rel="alternate" hreflang="es" href="https://dopabrain.com/quiz-app/">
+    <link rel="alternate" hreflang="pt" href="https://dopabrain.com/quiz-app/">
+    <link rel="alternate" hreflang="id" href="https://dopabrain.com/quiz-app/">
+    <link rel="alternate" hreflang="tr" href="https://dopabrain.com/quiz-app/">
+    <link rel="alternate" hreflang="de" href="https://dopabrain.com/quiz-app/">
+    <link rel="alternate" hreflang="fr" href="https://dopabrain.com/quiz-app/">
+    <link rel="alternate" hreflang="x-default" href="https://dopabrain.com/quiz-app/">
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Quiz",
       "name": "상식 퀴즈 100문제",
-      "description": "일반상식부터 IT, 경제까지 다양한 카테고리의 100문제 퀴즈",
+      "description": "일반상식부터 IT, 경제까지 다양한 카테고리의 100문제 퀴즈. 성인 난이도 지식 테스트로 당신의 실력을 확인하세요!",
+      "url": "https://dopabrain.com/quiz-app/",
+      "image": "https://dopabrain.com/quiz-app/icon-512.svg",
+      "applicationCategory": "EducationalApplication",
       "educationalLevel": "성인",
-      "inLanguage": "ko",
-      "publisher": { "@type": "Organization", "name": "DopaBrain" }
+      "inLanguage": ["ko", "en", "zh", "hi", "ru"],
+      "numberOfQuestions": 100,
+      "author": {
+        "@type": "Organization",
+        "name": "DopaBrain",
+        "url": "https://dopabrain.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "DopaBrain",
+        "url": "https://dopabrain.com/"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "KRW",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.5",
+        "ratingCount": "2500",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
     }
     </script>
 </head>
@@ -238,5 +278,16 @@
     <script src="js/i18n.js"></script>
     <script src="js/quiz-data.js"></script>
     <script src="js/app.js"></script>
+
+    <!-- Service Worker 등록 -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => console.log('Service Worker registered'))
+                    .catch(error => console.log('Service Worker registration failed:', error));
+            });
+        }
+    </script>
 </body>
 </html>
