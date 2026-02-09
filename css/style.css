@@ -241,22 +241,24 @@ body::after {
     color: var(--primary);
 }
 
-/* 프로그레스 바 */
+/* 프로그레스 바 - 그라데이션 강화 */
 .progress-bar {
     width: 100%;
-    height: 8px;
-    background: rgba(102, 126, 234, 0.2);
-    border-radius: 4px;
+    height: 10px;
+    background: rgba(102, 126, 234, 0.15);
+    border-radius: 5px;
     margin-top: 15px;
     overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--primary), var(--accent));
-    border-radius: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    border-radius: 5px;
     transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+    box-shadow: 0 0 12px rgba(102, 126, 234, 0.6), inset 0 1px 0 rgba(255,255,255,0.3);
+    position: relative;
 }
 
 /* 퀴즈 영역 */
@@ -315,6 +317,7 @@ body::after {
     background: white;
     border: 3px solid transparent;
     padding: 20px 15px;
+    min-height: 48px;
     border-radius: 16px;
     font-size: 1rem;
     font-weight: 600;
@@ -324,6 +327,9 @@ body::after {
     position: relative;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* 각 답변 버튼 색상 (Kahoot 스타일) */
@@ -364,35 +370,45 @@ body::after {
 
 .answer-btn:hover {
     transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .answer-btn:active {
-    transform: scale(0.98);
+    transform: scale(0.97);
 }
 
-/* 정답/오답 애니메이션 */
+/* 정답/오답 애니메이션 - 강화 */
 .answer-btn.correct {
     background: linear-gradient(135deg, var(--success), #00b359) !important;
     border-color: var(--success);
-    animation: pulse-correct 0.5s ease;
+    animation: pulse-correct 0.6s ease forwards;
+    box-shadow: 0 8px 20px rgba(0, 210, 106, 0.4), inset 0 1px 0 rgba(255,255,255,0.2);
 }
 
 @keyframes pulse-correct {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+    0% { transform: scale(1); box-shadow: 0 8px 20px rgba(0, 210, 106, 0.4); }
+    50% { transform: scale(1.08); box-shadow: 0 12px 30px rgba(0, 210, 106, 0.6); }
+    100% { transform: scale(1); box-shadow: 0 8px 20px rgba(0, 210, 106, 0.4); }
 }
 
 .answer-btn.wrong {
     background: linear-gradient(135deg, var(--danger), #e55555) !important;
     border-color: var(--danger);
-    animation: shake 0.5s ease;
+    animation: shake 0.6s ease forwards;
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4), inset 0 1px 0 rgba(255,255,255,0.2);
 }
 
 @keyframes shake {
     0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-10px); }
-    75% { transform: translateX(10px); }
+    10% { transform: translateX(-12px) rotateZ(-1deg); }
+    20% { transform: translateX(12px) rotateZ(1deg); }
+    30% { transform: translateX(-8px) rotateZ(-1deg); }
+    40% { transform: translateX(8px) rotateZ(1deg); }
+    50% { transform: translateX(0); }
+    60% { transform: translateX(-6px) rotateZ(-0.5deg); }
+    70% { transform: translateX(6px) rotateZ(0.5deg); }
+    80% { transform: translateX(-4px); }
+    90% { transform: translateX(4px); }
 }
 
 .answer-btn:disabled {
@@ -495,9 +511,10 @@ body::after {
     color: white;
 }
 
-/* 버튼 */
+/* 버튼 - CTA 강화 */
 .btn {
     padding: 18px 50px;
+    min-height: 48px;
     font-size: 1.1rem;
     border: none;
     border-radius: 30px;
@@ -512,6 +529,17 @@ body::after {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    animation: ctaPulse 2s ease-in-out infinite;
+    animation-delay: 0s;
+}
+
+@keyframes ctaPulse {
+    0%, 100% {
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+    50% {
+        box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+    }
 }
 
 .btn-primary::after {
@@ -530,12 +558,12 @@ body::after {
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 14px 40px rgba(102, 126, 234, 0.6);
 }
 
 .btn-primary:active {
-    transform: translateY(0);
+    transform: translateY(-1px) scale(0.98);
 }
 
 /* 숨김 클래스 */
@@ -909,16 +937,127 @@ body::after {
     color: white;
 }
 
-/* Recommendations Section */
-.recommendations-section { margin: 24px -25px -30px; padding: 24px 25px 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 0 0 24px 24px; }
-.rec-title { font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.7); margin-bottom: 12px; text-align: center; letter-spacing: 0.5px; }
-.rec-grid { display: flex; flex-direction: column; gap: 10px; }
-.rec-card { display: flex; align-items: center; gap: 14px; padding: 14px 16px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; text-decoration: none; color: #fff; transition: all 0.2s ease; }
-.rec-card:hover { background: rgba(255,255,255,0.18); transform: translateY(-1px); }
-.rec-icon { font-size: 28px; flex-shrink: 0; }
-.rec-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.rec-name { font-size: 14px; font-weight: 600; }
-.rec-desc { font-size: 12px; color: rgba(255,255,255,0.6); }
+/* CTA Badges - Social Proof */
+.cta-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Recommendations Section - Enhanced */
+.recommendations-section {
+    margin: 24px -25px -30px;
+    padding: 32px 25px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 0 0 24px 24px;
+    position: relative;
+}
+
+.recommendations-section::before {
+    content: '✨ 더 많은 앱을 즐기세요';
+    display: block;
+    text-align: center;
+    color: rgba(255,255,255,0.6);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.rec-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.95);
+    margin-bottom: 16px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.rec-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.rec-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 14px;
+    background: rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,255,255,0.2);
+    border-radius: 16px;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    min-height: 90px;
+    position: relative;
+    overflow: hidden;
+}
+
+.rec-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.rec-card:hover {
+    background: rgba(255,255,255,0.18);
+    transform: translateY(-3px) scale(1.02);
+    border-color: rgba(255,255,255,0.35);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.rec-card:hover::before {
+    opacity: 1;
+}
+
+.rec-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+    animation: bounceIcon 0.6s ease infinite;
+}
+
+@keyframes bounceIcon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+.rec-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.rec-name {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.rec-desc {
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+}
 
 /* 모달 스타일 */
 .modal {
