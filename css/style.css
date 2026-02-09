@@ -623,41 +623,269 @@ body::after {
     body {
         padding: 10px;
     }
-    
+
     .app-header {
         padding: 20px;
     }
-    
+
     .app-header h1 {
         font-size: 1.6rem;
     }
-    
+
     .score-board {
         gap: 20px;
     }
-    
+
     .score-board strong {
         font-size: 1.3rem;
     }
-    
+
     .quiz-container {
         padding: 25px 20px;
     }
-    
+
     #question-text {
         font-size: 1.2rem;
     }
-    
+
     .answers {
         grid-template-columns: 1fr;
     }
-    
+
     .answer-btn {
         padding: 18px;
+        min-height: 48px;
     }
-    
+
     .final-score strong {
         font-size: 2.5rem;
+    }
+}
+
+/* 360px 초소형 모바일 */
+@media (max-width: 360px) {
+    body {
+        padding: 8px;
+    }
+
+    .container {
+        max-width: 360px;
+    }
+
+    .ad-banner {
+        padding: 8px;
+        margin-bottom: 8px;
+    }
+
+    .app-header {
+        padding: 16px;
+        margin-bottom: 12px;
+        border-radius: 20px;
+    }
+
+    .app-header h1 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+
+    .score-board {
+        gap: 16px;
+        font-size: 0.85rem;
+    }
+
+    .score-board strong {
+        font-size: 1.2rem;
+    }
+
+    .progress-bar {
+        margin-top: 12px;
+        height: 6px;
+    }
+
+    .quiz-container {
+        padding: 20px 16px;
+        min-height: 400px;
+        border-radius: 20px;
+    }
+
+    .question-badge {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        margin-bottom: 16px;
+    }
+
+    #question-text {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        word-break: break-word;
+    }
+
+    .answers {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .answer-btn {
+        padding: 14px 12px;
+        font-size: 0.95rem;
+        min-height: 44px;
+        border-radius: 12px;
+    }
+
+    .result-screen {
+        padding: 30px 16px;
+    }
+
+    .result-icon {
+        font-size: 4rem;
+        margin-bottom: 16px;
+    }
+
+    .result-screen h2 {
+        font-size: 1.6rem;
+        margin-bottom: 8px;
+    }
+
+    .result-message {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+
+    .final-score {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+
+    .final-score strong {
+        font-size: 2.2rem;
+    }
+
+    .score-grade {
+        padding: 8px 20px;
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        padding: 14px 30px;
+        font-size: 1rem;
+        border-radius: 24px;
+        min-height: 44px;
+    }
+
+    .stats-grid {
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .stat-card {
+        padding: 12px;
+    }
+
+    .stat-value {
+        font-size: 1.3rem;
+    }
+
+    .stat-label {
+        font-size: 0.75rem;
+    }
+
+    .ad-content {
+        padding: 30px 20px;
+        max-width: 340px;
+    }
+
+    .ad-content p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .btn-close {
+        padding: 12px 28px;
+        font-size: 0.95rem;
+        min-height: 44px;
+    }
+
+    .interstitial-overlay {
+        padding: 12px;
+    }
+
+    .interstitial-content {
+        padding: 30px 20px;
+        max-width: 340px;
+    }
+
+    .close-ad-btn {
+        padding: 10px 24px;
+        font-size: 0.9rem;
+        min-height: 44px;
+    }
+
+    .premium-btn {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+        min-height: 44px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 1.5rem;
+    }
+
+    .modal-header h3 {
+        font-size: 1.3rem;
+    }
+
+    .modal-close {
+        width: 28px;
+        height: 28px;
+        font-size: 1rem;
+    }
+
+    .premium-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .premium-stat {
+        padding: 12px 8px;
+    }
+
+    .premium-stat-value {
+        font-size: 1.2rem;
+    }
+
+    .premium-stat-label {
+        font-size: 0.7rem;
+    }
+
+    .rec-card {
+        padding: 12px 14px;
+        gap: 12px;
+    }
+
+    .rec-icon {
+        font-size: 24px;
+    }
+
+    .rec-name {
+        font-size: 13px;
+    }
+
+    .rec-desc {
+        font-size: 11px;
+    }
+
+    .back-link {
+        font-size: 12px;
+    }
+
+    /* 터치 타겟 최소화 */
+    button, a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
