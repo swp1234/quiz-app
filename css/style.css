@@ -1410,3 +1410,110 @@ body::after {
 .back-link:hover {
     color: rgba(255, 255, 255, 0.7);
 }
+
+/* === Accessibility Improvements === */
+
+/* Focus Visible for All Interactive Elements */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+[role="button"]:focus-visible {
+    outline: 3px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Ensure minimum touch target size (44px) */
+button,
+a[href],
+input[type="button"],
+input[type="submit"],
+[role="button"] {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Skip to main content link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #667eea;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Modal accessibility */
+[role="dialog"] {
+    z-index: 1000;
+}
+
+.modal-close:focus-visible {
+    outline: 3px solid #667eea;
+    outline-offset: -2px;
+}
+
+/* Progress bar accessibility */
+[role="progressbar"] {
+    min-height: 8px;
+}
+
+/* Answer buttons accessibility */
+.answer-btn {
+    min-height: 54px;
+    font-size: 16px;
+    text-align: left;
+}
+
+.answer-btn:focus-visible {
+    outline: 3px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .pulse,
+    [class*="bounce"],
+    [class*="slide"],
+    [class*="fade"] {
+        animation: none !important;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
+    button {
+        border: 2px solid #667eea;
+    }
+
+    .score-board {
+        color: #ffffff;
+        text-shadow: 0 0 2px #667eea;
+    }
+}
+
+/* Color contrast improvements */
+.score-board {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.recommendation card a:focus-visible {
+    outline: 3px solid #667eea;
+    outline-offset: 4px;
+}
