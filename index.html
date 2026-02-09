@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600813755953882" crossorigin="anonymous"></script>
     <meta name="robots" content="max-image-preview:large">
+
+    <!-- Preconnect to external services for performance -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+
+    <!-- AdSense Script (loaded once in head) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3600813755953882" crossorigin="anonymous"></script>
     <title>상식 퀴즈 100문제 🧠 - 일반상식 테스트 | 무료 온라인 퀴즈</title>
     <meta name="description" content="100개의 성인 난이도 상식 퀴즈로 지식을 테스트하세요! 🧠 일반상식, 경제, IT, 과학 등 8개 카테고리. 무료 온라인 퀴즈 게임으로 즐기는 학습!">
     <meta name="keywords" content="상식 퀴즈, 지식 퀴즈, 일반상식 테스트, 무료 퀴즈, 온라인 퀴즈, 성인 퀴즈, 퀴즈 게임, 상식 테스트, IQ 테스트, 뇌 훈련">
@@ -100,10 +107,13 @@
         </div>
     </div>
 
+    <!-- Skip to main content link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <div class="container">
         <!-- 언어 선택 -->
         <div class="language-selector">
-            <button id="lang-toggle" class="lang-btn" aria-label="Language">🌐</button>
+            <button id="lang-toggle" class="lang-btn" aria-label="Change language" aria-expanded="false" aria-controls="lang-menu">🌐</button>
             <div id="lang-menu" class="lang-menu hidden">
                 <button class="lang-option" data-lang="ko">🇰🇷 한국어</button>
                 <button class="lang-option" data-lang="en">🇺🇸 English</button>
@@ -138,7 +148,7 @@
         </header>
 
         <!-- 퀴즈 영역 -->
-        <main class="quiz-container">
+        <main class="quiz-container" id="main-content">
             <div id="quiz-area">
                 <div class="question-card">
                     <span class="question-badge" id="question-badge">Q1</span>

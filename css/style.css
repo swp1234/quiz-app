@@ -1431,8 +1431,22 @@ body::after {
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
-[role="button"]:focus-visible {
-    outline: 3px solid #667eea;
+select:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible,
+[role="link"]:focus-visible {
+    outline: 3px solid #4a90e2;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Fallback focus style for older browsers */
+button:focus,
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #4a90e2;
     outline-offset: 2px;
 }
 
@@ -1441,7 +1455,8 @@ button,
 a[href],
 input[type="button"],
 input[type="submit"],
-[role="button"] {
+[role="button"],
+[role="link"] {
     min-width: 44px;
     min-height: 44px;
     display: inline-flex;
@@ -1456,9 +1471,10 @@ input[type="submit"],
     left: 0;
     background: #667eea;
     color: white;
-    padding: 8px;
+    padding: 8px 12px;
     text-decoration: none;
     z-index: 100;
+    font-weight: 600;
 }
 
 .skip-link:focus {
@@ -1471,7 +1487,7 @@ input[type="submit"],
 }
 
 .modal-close:focus-visible {
-    outline: 3px solid #667eea;
+    outline: 3px solid #4a90e2;
     outline-offset: -2px;
 }
 
@@ -1480,21 +1496,45 @@ input[type="submit"],
     min-height: 8px;
 }
 
-/* Answer buttons accessibility */
+/* Answer buttons accessibility - Enhanced */
 .answer-btn {
     min-height: 54px;
     font-size: 16px;
-    text-align: left;
+    text-align: center;
 }
 
 .answer-btn:focus-visible {
-    outline: 3px solid #667eea;
+    outline: 3px solid #4a90e2;
     outline-offset: 2px;
+}
+
+/* Language selector button - accessibility */
+.lang-btn {
+    min-width: 48px;
+    min-height: 48px;
+}
+
+.lang-btn:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* Language options accessibility */
+.lang-option {
+    min-height: 44px;
+    padding: 12px 14px;
+}
+
+.lang-option:focus-visible {
+    outline: 3px solid #4a90e2;
+    outline-offset: -2px;
 }
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-    * {
+    *,
+    *::before,
+    *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
@@ -1504,7 +1544,9 @@ input[type="submit"],
     .pulse,
     [class*="bounce"],
     [class*="slide"],
-    [class*="fade"] {
+    [class*="fade"],
+    [class*="float"],
+    [class*="animation"] {
         animation: none !important;
     }
 }
@@ -1519,15 +1561,58 @@ input[type="submit"],
         color: #ffffff;
         text-shadow: 0 0 2px #667eea;
     }
+
+    .app-header h1 {
+        border-bottom: 3px solid #667eea;
+        padding-bottom: 10px;
+    }
 }
 
 /* Color contrast improvements */
 .score-board {
     font-size: 16px;
     font-weight: 500;
+    color: #333333; /* Improved contrast */
 }
 
-.recommendation card a:focus-visible {
-    outline: 3px solid #667eea;
+.rec-card:focus-visible {
+    outline: 3px solid #ffffff;
     outline-offset: 4px;
+}
+
+/* Ad placeholder - improved contrast for readability */
+.ad-placeholder {
+    color: rgba(255, 255, 255, 0.8); /* Increased from 0.5 */
+    font-size: 12px; /* Minimum readable size */
+    letter-spacing: 1px;
+    font-weight: 600; /* Bold for better contrast */
+}
+
+/* Back link - improved visibility */
+.back-link {
+    color: rgba(255, 255, 255, 0.85); /* Improved from 0.4 */
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.back-link:hover {
+    color: rgba(255, 255, 255, 0.95); /* Improved from 0.7 */
+}
+
+/* Language selector text - improved contrast */
+.lang-btn {
+    background: rgba(255, 255, 255, 0.2); /* Increased opacity */
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.3); /* Slightly more opaque */
+}
+
+/* Text color accessibility improvements */
+#question-text {
+    color: #1a1a1a; /* Darker for better contrast */
+}
+
+.result-message {
+    color: #333333; /* Darker for better contrast */
 }
