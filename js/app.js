@@ -105,14 +105,17 @@ async function init() {
     }
 
     // i18n 초기화 확인
-    if (typeof i18n !== 'undefined') {
-        await i18n.loadTranslations(i18n.getCurrentLanguage());
-        i18n.updateUI();
+    try {
+        if (typeof i18n !== 'undefined') {
+            await i18n.loadTranslations(i18n.getCurrentLanguage());
+            i18n.updateUI();
 
-        // 현재 언어 활성화 표시
-        const currentLang = i18n.getCurrentLanguage();
-        const activeLangBtn = document.querySelector(`[data-lang="${currentLang}"]`);
-        if (activeLangBtn) activeLangBtn.classList.add('active');
+            const currentLang = i18n.getCurrentLanguage();
+            const activeLangBtn = document.querySelector(`[data-lang="${currentLang}"]`);
+            if (activeLangBtn) activeLangBtn.classList.add('active');
+        }
+    } catch (e) {
+        console.warn('i18n init failed:', e);
     }
 
     // localStorage에서 데이터 로드
