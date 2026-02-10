@@ -92,7 +92,7 @@ function saveGameData() {
 async function init() {
     // quizData 로드 확인
     if (typeof quizData === 'undefined' || !quizData || quizData.length === 0) {
-        console.error('quizData가 로드되지 않았습니다.');
+        console.error('quizData not loaded.');
         if (questionText) questionText.textContent = i18n ? i18n.t('quiz.loading') : 'Loading...';
         setTimeout(() => {
             if (typeof quizData !== 'undefined' && quizData && quizData.length > 0) {
@@ -142,7 +142,7 @@ function shuffleArray(array) {
 // 문제 로드
 function loadQuestion() {
     if (!selectedQuestions || selectedQuestions.length === 0) {
-        console.error('selectedQuestions가 비어있습니다.');
+        console.error('selectedQuestions is empty.');
         if (questionText) questionText.textContent = i18n ? i18n.t('quiz.loading') : 'Loading...';
         return;
     }
@@ -155,7 +155,7 @@ function loadQuestion() {
     const question = selectedQuestions[currentQuestion];
 
     if (!question || !question.question) {
-        console.error('질문 데이터가 없습니다.');
+        console.error('Question data not found.');
         currentQuestion++;
         loadQuestion();
         return;
