@@ -38,6 +38,30 @@ input[type="text"], textarea {
     --text-white: #ffffff;
 }
 
+/* App Loader */
+.app-loader {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.3s;
+}
+.app-loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.loader-spinner {
+    width: 40px; height: 40px;
+    border: 3px solid rgba(255,255,255,0.1);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
 body {
     font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
     background: var(--background);
@@ -1615,4 +1639,202 @@ input[type="submit"],
 
 .result-message {
     color: #333333; /* Darker for better contrast */
+}
+
+/* === THEME TOGGLE === */
+.theme-toggle {
+    position: fixed;
+    top: 12px;
+    right: 56px;
+    z-index: 1000;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-white);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.theme-toggle:hover {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.1);
+}
+
+/* === LIGHT MODE === */
+[data-theme="light"] {
+    --background: linear-gradient(135deg, #f5f5fa 0%, #e8e8f0 100%);
+    --surface: #ffffff;
+    --surface-glass: rgba(0, 0, 0, 0.05);
+    --text: #1a1a2e;
+    --text-light: #5a5a70;
+    --text-white: #ffffff;
+}
+
+[data-theme="light"] body {
+    background: var(--background);
+}
+
+[data-theme="light"] .lang-btn {
+    background: rgba(102, 126, 234, 0.15);
+    border-color: rgba(102, 126, 234, 0.25);
+    color: var(--primary);
+}
+
+[data-theme="light"] .lang-btn:hover {
+    background: rgba(102, 126, 234, 0.25);
+}
+
+[data-theme="light"] .lang-menu {
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: rgba(102, 126, 234, 0.2);
+}
+
+[data-theme="light"] .lang-option {
+    color: var(--text);
+}
+
+[data-theme="light"] .lang-option:hover {
+    background: rgba(102, 126, 234, 0.1);
+}
+
+[data-theme="light"] .lang-option.active {
+    background: rgba(102, 126, 234, 0.15);
+}
+
+[data-theme="light"] .app-header {
+    background: var(--surface);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .app-header h1 {
+    color: var(--text);
+}
+
+[data-theme="light"] .score-board {
+    color: var(--text-light);
+}
+
+[data-theme="light"] .quiz-container {
+    background: var(--surface);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] #question-text {
+    color: var(--text);
+}
+
+[data-theme="light"] .answer-btn {
+    background: white;
+    color: var(--text);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .answer-btn:hover {
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+}
+
+[data-theme="light"] .progress-bar {
+    background: rgba(102, 126, 234, 0.1);
+}
+
+[data-theme="light"] .stat-card {
+    background: rgba(102, 126, 234, 0.08);
+}
+
+[data-theme="light"] .stat-label {
+    color: var(--text-light);
+}
+
+[data-theme="light"] .ad-banner {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.08);
+    color: var(--text-light);
+}
+
+[data-theme="light"] .ad-placeholder {
+    color: var(--text-light);
+}
+
+[data-theme="light"] .modal-content {
+    background: var(--surface);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .modal-body p {
+    color: var(--text);
+}
+
+[data-theme="light"] .interstitial-content {
+    background: var(--surface);
+}
+
+[data-theme="light"] .interstitial-content p {
+    color: var(--text);
+}
+
+[data-theme="light"] .ad-content p {
+    color: var(--text);
+}
+
+[data-theme="light"] .recommendations-section {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+}
+
+[data-theme="light"] .recommendations-section::before {
+    color: var(--text-light);
+}
+
+[data-theme="light"] .rec-title {
+    color: var(--primary);
+}
+
+[data-theme="light"] .rec-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(102, 126, 234, 0.2);
+}
+
+[data-theme="light"] .rec-card:hover {
+    background: rgba(102, 126, 234, 0.1);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+}
+
+[data-theme="light"] .rec-name {
+    color: var(--text);
+}
+
+[data-theme="light"] .rec-desc {
+    color: var(--text-light);
+}
+
+[data-theme="light"] .back-link {
+    color: var(--text-light);
+}
+
+[data-theme="light"] .back-link:hover {
+    color: var(--text);
+}
+
+[data-theme="light"] .theme-toggle {
+    background: rgba(102, 126, 234, 0.15);
+    border-color: rgba(102, 126, 234, 0.25);
+    color: var(--primary);
+}
+
+[data-theme="light"] .theme-toggle:hover {
+    background: rgba(102, 126, 234, 0.25);
+}
+
+[data-theme="light"] body::before,
+[data-theme="light"] body::after {
+    background: rgba(102, 126, 234, 0.05);
 }

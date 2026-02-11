@@ -677,33 +677,58 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 
     async function startApp() {
-        if (!checkDependencies()) {
-            retryCount++;
-            if (retryCount < maxRetries) {
-                setTimeout(startApp, 200);
+        try {
+            if (!checkDependencies()) {
+                retryCount++;
+                if (retryCount < maxRetries) {
+                    setTimeout(startApp, 200);
+                    return;
+                }
+                console.error('Dependencies failed to load after retries');
+                const questionTextEl = document.getElementById('question-text');
+                if (questionTextEl) questionTextEl.textContent = 'Failed to load. Please refresh.';
                 return;
             }
-            console.error('Dependencies failed to load after retries');
-            const questionTextEl = document.getElementById('question-text');
-            if (questionTextEl) questionTextEl.textContent = 'Failed to load. Please refresh.';
-            return;
-        }
 
-        await init();
-        registerServiceWorker();
+            await init();
+            registerServiceWorker();
 
-        // 프리미엄 분석 버튼
-        const premiumBtn = document.getElementById('premium-analysis-btn');
-        if (premiumBtn) {
-            premiumBtn.addEventListener('click', showPremiumAnalysis);
-        }
+            // 프리미엄 분석 버튼
+            const premiumBtn = document.getElementById('premium-analysis-btn');
+            if (premiumBtn) {
+                premiumBtn.addEventListener('click', showPremiumAnalysis);
+            }
 
-        // 프리미엄 모달 닫기
-        const premiumClose = document.getElementById('premium-close');
-        if (premiumClose) {
-            premiumClose.addEventListener('click', () => {
-                document.getElementById('premium-modal').classList.add('hidden');
-            });
+            // 프리미엄 모달 닫기
+            const premiumClose = document.getElementById('premium-close');
+            if (premiumClose) {
+                premiumClose.addEventListener('click', () => {
+                    document.getElementById('premium-modal').classList.add('hidden');
+                });
+            }
+
+            // Theme toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                const savedTheme = localStorage.getItem('theme') || 'dark';
+                document.documentElement.setAttribute('data-theme', savedTheme);
+                themeToggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+                themeToggle.addEventListener('click', () => {
+                    const current = document.documentElement.getAttribute('data-theme');
+                    const next = current === 'light' ? 'dark' : 'light';
+                    document.documentElement.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+                    themeToggle.textContent = next === 'light' ? '🌙' : '☀️';
+                });
+            }
+        } catch(e) {
+            console.error('Init error:', e);
+        } finally {
+            const loader = document.getElementById('app-loader');
+            if (loader) {
+                loader.classList.add('hidden');
+                setTimeout(() => loader.remove(), 300);
+            }
         }
     }
 
