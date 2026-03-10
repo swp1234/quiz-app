@@ -1,9 +1,10 @@
-const CACHE_NAME = 'quiz-app-v3';
+const CACHE_NAME = 'quiz-app-v4';
 const urlsToCache = [
     '/',
     '/index.html',
     '/css/style.css',
     '/js/app.js',
+    '/js/sound-engine.js',
     '/js/quiz-data.js',
     '/js/i18n.js',
     '/manifest.json',

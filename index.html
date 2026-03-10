@@ -113,6 +113,8 @@
     </div>
 
     <!-- Theme Toggle -->
+    <button class="sound-toggle" id="sound-toggle" onclick="if(window.sfx)window.sfx.resume();const enabled=window.sfx?window.sfx.toggle():false;this.textContent=enabled?'🔊':'🔇';" title="Toggle Sound">🔊</button>
+    <style>.sound-toggle{position:fixed;top:12px;right:92px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:18px;cursor:pointer;z-index:100;display:flex;align-items:center;justify-content:center;transition:background 0.2s;backdrop-filter:blur(8px)}.sound-toggle:hover{background:rgba(255,255,255,0.2)}.sound-toggle:active{transform:scale(0.95)}[data-theme="light"] .sound-toggle{background:rgba(0,0,0,0.06);border-color:rgba(0,0,0,0.12);color:#333}</style>
     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☀️</button>
 
     <!-- Language Selector -->
@@ -282,8 +284,10 @@
         </a>
     </footer>
 
+    <script src="js/sound-engine.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/quiz-data.js"></script>
+    <script src="/portal/js/haptic.js"></script>
     <script src="js/app.js"></script>
 
     <!-- Service Worker -->
