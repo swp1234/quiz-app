@@ -90,5 +90,8 @@
   },
   "game": {
     "back": "DopaBrain Anasayfa"
+  },
+  "quiz": {
+    "loadError": "Yüklenemedi. Lütfen yenileyin."
   }
 }

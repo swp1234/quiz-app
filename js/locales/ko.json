@@ -90,5 +90,8 @@
   },
   "game": {
     "back": "DopaBrain 홈"
+  },
+  "quiz": {
+    "loadError": "로딩 실패. 새로고침 해주세요."
   }
 }

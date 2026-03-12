@@ -90,5 +90,8 @@
   },
   "game": {
     "back": "Inicio de DopaBrain"
+  },
+  "quiz": {
+    "loadError": "Error de carga. Actualice la página."
   }
 }

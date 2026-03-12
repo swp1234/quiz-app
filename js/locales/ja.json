@@ -90,5 +90,8 @@
   },
   "game": {
     "back": "DopaBrainホーム"
+  },
+  "quiz": {
+    "loadError": "読み込み失敗。更新してください。"
   }
 }

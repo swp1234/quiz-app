@@ -702,7 +702,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                 }
                 console.error('Dependencies failed to load after retries');
                 const questionTextEl = document.getElementById('question-text');
-                if (questionTextEl) questionTextEl.textContent = 'Failed to load. Please refresh.';
+                if (questionTextEl) questionTextEl.textContent = window.i18n?.t('quiz.loadError') || 'Failed to load. Please refresh.';
                 return;
             }
 

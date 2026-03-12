@@ -90,5 +90,8 @@
   },
   "game": {
     "back": "Beranda DopaBrain"
+  },
+  "quiz": {
+    "loadError": "Gagal memuat. Silakan muat ulang."
   }
 }

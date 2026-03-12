@@ -90,5 +90,8 @@
   },
   "game": {
     "back": "DopaBrain Home"
+  },
+  "quiz": {
+    "loadError": "Failed to load. Please refresh."
   }
 }

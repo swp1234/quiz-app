@@ -90,5 +90,8 @@
   },
   "game": {
     "back": "DopaBrain Startseite"
+  },
+  "quiz": {
+    "loadError": "Laden fehlgeschlagen. Bitte aktualisieren."
   }
 }
