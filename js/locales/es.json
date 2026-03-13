@@ -9,10 +9,7 @@
     "question": "Pregunta"
   },
   "quiz": {
-    "loading": "Cargando cuestionario...",
-    "loadError": "No se pudieron cargar los datos del cuestionario. Por favor, actualiza la página.",
-    "questionBadge": "P",
-    "timeout": "Se acabó el tiempo"
+    "loadError": "Error de carga. Actualice la página."
   },
   "results": {
     "title": "¡Cuestionario Completado!",
@@ -29,10 +26,26 @@
       "poor": "💪 ¡Intenta de nuevo!"
     },
     "messages": {
-      "excellent": ["¡Perfecto! ¡Eres un genio! 🧠", "¡Increíble! ¡Maestro del conocimiento! 👑", "¡Increíble! ¡Puntuación perfecta! 🌟"],
-      "good": ["¡Excelente! ¡Excelente! 👏", "¡Impresionante! ¡Casi perfecto! 💪", "¡Fantástico! ¡Rendimiento excepcional! ✨"],
-      "average": ["¡Bien! ¡Se necesita un poco más de esfuerzo! 📚", "¡No está mal! ¡Lo harás mejor la próxima vez! 💫", "¡Sigue adelante! ¡Sigue intentando! 🎯"],
-      "poor": ["¡No te rindas! ¡Intenta de nuevo! 🔄", "¡Está bien! ¡Estudia e intenta de nuevo! 📖", "¡La práctica hace al maestro! 💪"]
+      "excellent": [
+        "¡Perfecto! ¡Eres un genio! 🧠",
+        "¡Increíble! ¡Maestro del conocimiento! 👑",
+        "¡Increíble! ¡Puntuación perfecta! 🌟"
+      ],
+      "good": [
+        "¡Excelente! ¡Excelente! 👏",
+        "¡Impresionante! ¡Casi perfecto! 💪",
+        "¡Fantástico! ¡Rendimiento excepcional! ✨"
+      ],
+      "average": [
+        "¡Bien! ¡Se necesita un poco más de esfuerzo! 📚",
+        "¡No está mal! ¡Lo harás mejor la próxima vez! 💫",
+        "¡Sigue adelante! ¡Sigue intentando! 🎯"
+      ],
+      "poor": [
+        "¡No te rindas! ¡Intenta de nuevo! 🔄",
+        "¡Está bien! ¡Estudia e intenta de nuevo! 📖",
+        "¡La práctica hace al maestro! 💪"
+      ]
     }
   },
   "explanation": {
@@ -91,7 +104,11 @@
   "game": {
     "back": "Inicio de DopaBrain"
   },
-  "quiz": {
-    "loadError": "Error de carga. Actualice la página."
+  "related": {
+    "title": "Explora más",
+    "devQuiz": "Quiz Dev",
+    "iqTest": "Test de IQ",
+    "wouldYouRather": "¿Qué prefieres?",
+    "wordGuess": "Adivina la palabra"
   }
 }

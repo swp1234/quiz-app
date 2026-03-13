@@ -9,10 +9,7 @@
     "question": "Pertanyaan"
   },
   "quiz": {
-    "loading": "Memuat kuis...",
-    "loadError": "Gagal memuat data kuis. Silakan segarkan halaman.",
-    "questionBadge": "T",
-    "timeout": "Waktu habis"
+    "loadError": "Gagal memuat. Silakan muat ulang."
   },
   "results": {
     "title": "Kuis Selesai!",
@@ -29,10 +26,26 @@
       "poor": "💪 Coba lagi!"
     },
     "messages": {
-      "excellent": ["Sempurna! Anda adalah jenius! 🧠", "Menakjubkan! Ahli pengetahuan! 👑", "Luar biasa! Skor sempurna! 🌟"],
-      "good": ["Pekerjaan bagus! Luar biasa! 👏", "Hebat! Hampir sempurna! 💪", "Fantastis! Kinerja luar biasa! ✨"],
-      "average": ["Bagus! Usaha sedikit lebih keras diperlukan! 📚", "Tidak buruk! Anda akan melakukan lebih baik lagi! 💫", "Terus begini! Terus coba! 🎯"],
-      "poor": ["Jangan menyerah! Coba lagi! 🔄", "Tidak apa-apa! Belajar dan coba lagi! 📖", "Praktik membuat sempurna! 💪"]
+      "excellent": [
+        "Sempurna! Anda adalah jenius! 🧠",
+        "Menakjubkan! Ahli pengetahuan! 👑",
+        "Luar biasa! Skor sempurna! 🌟"
+      ],
+      "good": [
+        "Pekerjaan bagus! Luar biasa! 👏",
+        "Hebat! Hampir sempurna! 💪",
+        "Fantastis! Kinerja luar biasa! ✨"
+      ],
+      "average": [
+        "Bagus! Usaha sedikit lebih keras diperlukan! 📚",
+        "Tidak buruk! Anda akan melakukan lebih baik lagi! 💫",
+        "Terus begini! Terus coba! 🎯"
+      ],
+      "poor": [
+        "Jangan menyerah! Coba lagi! 🔄",
+        "Tidak apa-apa! Belajar dan coba lagi! 📖",
+        "Praktik membuat sempurna! 💪"
+      ]
     }
   },
   "explanation": {
@@ -91,7 +104,11 @@
   "game": {
     "back": "Beranda DopaBrain"
   },
-  "quiz": {
-    "loadError": "Gagal memuat. Silakan muat ulang."
+  "related": {
+    "title": "Jelajahi lainnya",
+    "devQuiz": "Kuis Dev",
+    "iqTest": "Tes IQ",
+    "wouldYouRather": "Pilih Mana?",
+    "wordGuess": "Tebak Kata"
   }
 }

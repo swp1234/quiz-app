@@ -9,10 +9,7 @@
     "question": "Question"
   },
   "quiz": {
-    "loading": "Loading quiz...",
-    "loadError": "Failed to load quiz data. Please refresh the page.",
-    "questionBadge": "Q",
-    "timeout": "Time's up"
+    "loadError": "Failed to load. Please refresh."
   },
   "results": {
     "title": "Quiz Complete!",
@@ -29,10 +26,26 @@
       "poor": "💪 Try again!"
     },
     "messages": {
-      "excellent": ["Perfect! You're a genius! 🧠", "Amazing! Knowledge master! 👑", "Incredible! Perfect score! 🌟"],
-      "good": ["Great job! Excellent! 👏", "Awesome! Almost perfect! 💪", "Fantastic! Outstanding performance! ✨"],
-      "average": ["Good! A little more effort needed! 📚", "Not bad! You'll do better next time! 💫", "Keep it up! Keep trying! 🎯"],
-      "poor": ["Don't give up! Try again! 🔄", "It's okay! Study and retry! 📖", "Practice makes perfect! 💪"]
+      "excellent": [
+        "Perfect! You're a genius! 🧠",
+        "Amazing! Knowledge master! 👑",
+        "Incredible! Perfect score! 🌟"
+      ],
+      "good": [
+        "Great job! Excellent! 👏",
+        "Awesome! Almost perfect! 💪",
+        "Fantastic! Outstanding performance! ✨"
+      ],
+      "average": [
+        "Good! A little more effort needed! 📚",
+        "Not bad! You'll do better next time! 💫",
+        "Keep it up! Keep trying! 🎯"
+      ],
+      "poor": [
+        "Don't give up! Try again! 🔄",
+        "It's okay! Study and retry! 📖",
+        "Practice makes perfect! 💪"
+      ]
     }
   },
   "explanation": {
@@ -91,7 +104,11 @@
   "game": {
     "back": "DopaBrain Home"
   },
-  "quiz": {
-    "loadError": "Failed to load. Please refresh."
+  "related": {
+    "title": "More to Explore",
+    "devQuiz": "Dev Quiz",
+    "iqTest": "IQ Test",
+    "wouldYouRather": "Would You Rather",
+    "wordGuess": "Word Guess"
   }
 }

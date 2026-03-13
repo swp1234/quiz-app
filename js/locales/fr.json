@@ -9,10 +9,7 @@
     "question": "Question"
   },
   "quiz": {
-    "loading": "Chargement du quiz...",
-    "loadError": "Impossible de charger les données du quiz. Veuillez rafraîchir la page.",
-    "questionBadge": "Q",
-    "timeout": "Le temps est écoulé"
+    "loadError": "Échec du chargement. Veuillez actualiser."
   },
   "results": {
     "title": "Quiz Terminé!",
@@ -29,10 +26,26 @@
       "poor": "💪 Réessaie!"
     },
     "messages": {
-      "excellent": ["Parfait! Tu es un génie! 🧠", "Incroyable! Maître de la connaissance! 👑", "Incroyable! Score parfait! 🌟"],
-      "good": ["Excellent travail! Excellent! 👏", "Génial! Presque parfait! 💪", "Fantastique! Performance exceptionnelle! ✨"],
-      "average": ["Bien! Un peu plus d'effort nécessaire! 📚", "Pas mal! Tu feras mieux la prochaine fois! 💫", "Continue! Garde l'effort! 🎯"],
-      "poor": ["N'abandonne pas! Réessaie! 🔄", "C'est d'accord! Étudie et réessaie! 📖", "La pratique rend parfait! 💪"]
+      "excellent": [
+        "Parfait! Tu es un génie! 🧠",
+        "Incroyable! Maître de la connaissance! 👑",
+        "Incroyable! Score parfait! 🌟"
+      ],
+      "good": [
+        "Excellent travail! Excellent! 👏",
+        "Génial! Presque parfait! 💪",
+        "Fantastique! Performance exceptionnelle! ✨"
+      ],
+      "average": [
+        "Bien! Un peu plus d'effort nécessaire! 📚",
+        "Pas mal! Tu feras mieux la prochaine fois! 💫",
+        "Continue! Garde l'effort! 🎯"
+      ],
+      "poor": [
+        "N'abandonne pas! Réessaie! 🔄",
+        "C'est d'accord! Étudie et réessaie! 📖",
+        "La pratique rend parfait! 💪"
+      ]
     }
   },
   "explanation": {
@@ -91,7 +104,11 @@
   "game": {
     "back": "Accueil de DopaBrain"
   },
-  "quiz": {
-    "loadError": "Échec du chargement. Veuillez actualiser."
+  "related": {
+    "title": "À découvrir",
+    "devQuiz": "Quiz Dev",
+    "iqTest": "Test de QI",
+    "wouldYouRather": "Tu préfères?",
+    "wordGuess": "Deviner le mot"
   }
 }

@@ -9,10 +9,7 @@
     "question": "Soru"
   },
   "quiz": {
-    "loading": "Sınav yükleniyor...",
-    "loadError": "Sınav verileri yüklenemedi. Lütfen sayfayı yenileyin.",
-    "questionBadge": "S",
-    "timeout": "Süre bitti"
+    "loadError": "Yüklenemedi. Lütfen yenileyin."
   },
   "results": {
     "title": "Sınav Tamamlandı!",
@@ -29,10 +26,26 @@
       "poor": "💪 Tekrar dene!"
     },
     "messages": {
-      "excellent": ["Mükemmel! Dehasın! 🧠", "İnanılmaz! Bilgi ustası! 👑", "Harika! Mükemmel skor! 🌟"],
-      "good": ["Harika iş! Mükemmel! 👏", "Muhteşem! Neredeyse mükemmel! 💪", "Fantastik! Olağanüstü performans! ✨"],
-      "average": ["İyi! Biraz daha çalış gerekli! 📚", "Kötü değil! Başta daha iyi yaparsın! 💫", "Devam et! Çalışmaya devam et! 🎯"],
-      "poor": ["Pes etme! Tekrar dene! 🔄", "Sorun yok! Çalış ve yeniden dene! 📖", "Alıştırma mükemmel yapar! 💪"]
+      "excellent": [
+        "Mükemmel! Dehasın! 🧠",
+        "İnanılmaz! Bilgi ustası! 👑",
+        "Harika! Mükemmel skor! 🌟"
+      ],
+      "good": [
+        "Harika iş! Mükemmel! 👏",
+        "Muhteşem! Neredeyse mükemmel! 💪",
+        "Fantastik! Olağanüstü performans! ✨"
+      ],
+      "average": [
+        "İyi! Biraz daha çalış gerekli! 📚",
+        "Kötü değil! Başta daha iyi yaparsın! 💫",
+        "Devam et! Çalışmaya devam et! 🎯"
+      ],
+      "poor": [
+        "Pes etme! Tekrar dene! 🔄",
+        "Sorun yok! Çalış ve yeniden dene! 📖",
+        "Alıştırma mükemmel yapar! 💪"
+      ]
     }
   },
   "explanation": {
@@ -91,7 +104,11 @@
   "game": {
     "back": "DopaBrain Anasayfa"
   },
-  "quiz": {
-    "loadError": "Yüklenemedi. Lütfen yenileyin."
+  "related": {
+    "title": "Daha fazla keşfet",
+    "devQuiz": "Geliştirici Quiz",
+    "iqTest": "IQ Testi",
+    "wouldYouRather": "Hangisini Tercih Edersin?",
+    "wordGuess": "Kelime Tahmin"
   }
 }

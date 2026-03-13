@@ -9,10 +9,7 @@
     "question": "Questão"
   },
   "quiz": {
-    "loading": "Carregando quiz...",
-    "loadError": "Não foi possível carregar os dados do quiz. Por favor, atualize a página.",
-    "questionBadge": "Q",
-    "timeout": "Tempo esgotado"
+    "loadError": "Falha ao carregar. Atualize a página."
   },
   "results": {
     "title": "Quiz Completo!",
@@ -29,10 +26,26 @@
       "poor": "💪 Tente novamente!"
     },
     "messages": {
-      "excellent": ["Perfeito! Você é um gênio! 🧠", "Incrível! Mestre do conhecimento! 👑", "Incrível! Pontuação perfeita! 🌟"],
-      "good": ["Ótimo trabalho! Excelente! 👏", "Incrível! Quase perfeito! 💪", "Fantástico! Desempenho excepcional! ✨"],
-      "average": ["Bom! Um pouco mais de esforço necessário! 📚", "Não é ruim! Você fará melhor da próxima vez! 💫", "Continue! Continue tentando! 🎯"],
-      "poor": ["Não desista! Tente novamente! 🔄", "Tudo bem! Estude e tente novamente! 📖", "A prática leva à perfeição! 💪"]
+      "excellent": [
+        "Perfeito! Você é um gênio! 🧠",
+        "Incrível! Mestre do conhecimento! 👑",
+        "Incrível! Pontuação perfeita! 🌟"
+      ],
+      "good": [
+        "Ótimo trabalho! Excelente! 👏",
+        "Incrível! Quase perfeito! 💪",
+        "Fantástico! Desempenho excepcional! ✨"
+      ],
+      "average": [
+        "Bom! Um pouco mais de esforço necessário! 📚",
+        "Não é ruim! Você fará melhor da próxima vez! 💫",
+        "Continue! Continue tentando! 🎯"
+      ],
+      "poor": [
+        "Não desista! Tente novamente! 🔄",
+        "Tudo bem! Estude e tente novamente! 📖",
+        "A prática leva à perfeição! 💪"
+      ]
     }
   },
   "explanation": {
@@ -91,7 +104,11 @@
   "game": {
     "back": "Início do DopaBrain"
   },
-  "quiz": {
-    "loadError": "Falha ao carregar. Atualize a página."
+  "related": {
+    "title": "Explore mais",
+    "devQuiz": "Quiz Dev",
+    "iqTest": "Teste de QI",
+    "wouldYouRather": "O que prefere?",
+    "wordGuess": "Adivinhe a palavra"
   }
 }

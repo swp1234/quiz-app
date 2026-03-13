@@ -9,10 +9,7 @@
     "question": "Frage"
   },
   "quiz": {
-    "loading": "Quiz wird geladen...",
-    "loadError": "Quiz-Daten konnten nicht geladen werden. Bitte aktualisieren Sie die Seite.",
-    "questionBadge": "F",
-    "timeout": "Zeit ist abgelaufen"
+    "loadError": "Laden fehlgeschlagen. Bitte aktualisieren."
   },
   "results": {
     "title": "Quiz fertig!",
@@ -29,10 +26,26 @@
       "poor": "💪 Versuche es nochmal!"
     },
     "messages": {
-      "excellent": ["Perfekt! Du bist ein Genie! 🧠", "Erstaunlich! Wissens-Meister! 👑", "Unglaublich! Perfekte Punktzahl! 🌟"],
-      "good": ["Großartig! Ausgezeichnet! 👏", "Fantastisch! Fast perfekt! 💪", "Großartig! Hervorragende Leistung! ✨"],
-      "average": ["Gut! Ein wenig mehr Anstrengung nötig! 📚", "Nicht schlecht! Du machst es nächste Mal besser! 💫", "Weitermachen! Bleib am Ball! 🎯"],
-      "poor": ["Gib nicht auf! Versuche es nochmal! 🔄", "Das ist okay! Lern und versuch nochmal! 📖", "Übung macht den Meister! 💪"]
+      "excellent": [
+        "Perfekt! Du bist ein Genie! 🧠",
+        "Erstaunlich! Wissens-Meister! 👑",
+        "Unglaublich! Perfekte Punktzahl! 🌟"
+      ],
+      "good": [
+        "Großartig! Ausgezeichnet! 👏",
+        "Fantastisch! Fast perfekt! 💪",
+        "Großartig! Hervorragende Leistung! ✨"
+      ],
+      "average": [
+        "Gut! Ein wenig mehr Anstrengung nötig! 📚",
+        "Nicht schlecht! Du machst es nächste Mal besser! 💫",
+        "Weitermachen! Bleib am Ball! 🎯"
+      ],
+      "poor": [
+        "Gib nicht auf! Versuche es nochmal! 🔄",
+        "Das ist okay! Lern und versuch nochmal! 📖",
+        "Übung macht den Meister! 💪"
+      ]
     }
   },
   "explanation": {
@@ -91,7 +104,11 @@
   "game": {
     "back": "DopaBrain Startseite"
   },
-  "quiz": {
-    "loadError": "Laden fehlgeschlagen. Bitte aktualisieren."
+  "related": {
+    "title": "Mehr entdecken",
+    "devQuiz": "Entwickler-Quiz",
+    "iqTest": "IQ-Test",
+    "wouldYouRather": "Was würdest du wählen?",
+    "wordGuess": "Wort raten"
   }
 }
