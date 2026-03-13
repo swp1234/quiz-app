@@ -10,6 +10,8 @@ let highScore = 0;
 let totalGamesPlayed = 0;
 let questionTimer = null;
 let timeLeft = 0;
+let streak = 0;
+let bestStreak = 0;
 const TIME_PER_QUESTION = 15; // seconds
 const QUESTIONS_PER_GAME = 10;
 
@@ -125,6 +127,8 @@ async function init() {
     selectedQuestions = shuffleArray([...quizData]).slice(0, QUESTIONS_PER_GAME);
     currentQuestion = 0;
     score = 0;
+    streak = 0;
+    bestStreak = 0;
     wrongAnswers = [];
     categoryStats = {};
     updateScore();
@@ -233,6 +237,7 @@ function updateTimerDisplay() {
 }
 
 function handleTimeout() {
+    streak = 0;
     const question = selectedQuestions[currentQuestion];
     const buttons = document.querySelectorAll('.answer-btn');
     buttons.forEach(btn => btn.disabled = true);
@@ -294,12 +299,23 @@ function selectAnswer(selectedIndex) {
     if (isCorrect) {
         buttons[selectedIndex].classList.add('correct');
         score++;
+        streak++;
+        bestStreak = Math.max(bestStreak, streak);
         updateScore();
         if (window.sfx) window.sfx.play('correct');
         if (typeof Haptic !== 'undefined') Haptic.light();
+
+        // Streak celebrations
+        if (streak >= 3) {
+            showStreakFloat(streak);
+        }
+        if (streak === 5 || streak === 10) {
+            spawnQuizConfetti();
+        }
     } else {
         buttons[selectedIndex].classList.add('wrong');
         buttons[question.correct].classList.add('correct');
+        streak = 0;
         if (window.sfx) window.sfx.play('wrong');
         if (typeof Haptic !== 'undefined') Haptic.medium();
         // Shake question area
@@ -360,6 +376,34 @@ function updateScore() {
     scoreElement.textContent = score;
 }
 
+// Streak float
+function showStreakFloat(s) {
+    const emoji = s >= 10 ? '🔥🔥' : s >= 5 ? '🔥' : '⚡';
+    const el = document.createElement('div');
+    el.textContent = `${emoji} ${s} Streak!`;
+    el.style.cssText = 'position:fixed;top:28%;left:50%;transform:translateX(-50%);font-size:24px;font-weight:800;color:#f59e0b;z-index:9999;pointer-events:none;text-shadow:0 0 12px rgba(245,158,11,0.5);opacity:1;transition:all 1s ease-out;';
+    document.body.appendChild(el);
+    requestAnimationFrame(() => { el.style.top = '18%'; el.style.opacity = '0'; });
+    setTimeout(() => el.remove(), 1200);
+}
+
+// Quiz confetti
+function spawnQuizConfetti() {
+    const colors = ['#f59e0b','#10b981','#3b82f6','#ef4444','#8b5cf6','#ec4899'];
+    for (let i = 0; i < 30; i++) {
+        const p = document.createElement('div');
+        p.style.cssText = `position:fixed;top:-8px;left:${Math.random()*100}%;width:${5+Math.random()*5}px;height:${5+Math.random()*5}px;background:${colors[i%colors.length]};border-radius:${Math.random()>.5?'50%':'0'};z-index:99999;pointer-events:none;animation:qConfFall ${1+Math.random()*1.5}s linear forwards;`;
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 3000);
+    }
+    if (!document.getElementById('qconf-style')) {
+        const s = document.createElement('style');
+        s.id = 'qconf-style';
+        s.textContent = '@keyframes qConfFall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}';
+        document.head.appendChild(s);
+    }
+}
+
 // 결과 표시
 function showResults() {
     clearInterval(questionTimer);
@@ -416,6 +460,19 @@ function showResults() {
     }
     scoreGrade.className = `score-grade ${grade}`;
     scoreGrade.textContent = gradeText;
+
+    // Best streak display
+    if (bestStreak >= 2) {
+        let streakEl = document.getElementById('result-streak');
+        if (!streakEl) {
+            streakEl = document.createElement('div');
+            streakEl.id = 'result-streak';
+            streakEl.style.cssText = 'text-align:center;font-size:16px;font-weight:700;margin:8px 0;color:#f59e0b;';
+            scoreGrade.parentElement.insertBefore(streakEl, scoreGrade.nextSibling);
+        }
+        const streakEmoji = bestStreak >= 7 ? '🔥🔥' : bestStreak >= 5 ? '🔥' : '⚡';
+        streakEl.textContent = `${streakEmoji} Best Streak: ${bestStreak}`;
+    }
 
     // 카테고리별 통계 표시
     showCategoryStats();
